@@ -5153,6 +5153,21 @@ span.required {
 	font-size: 14px;
 	color: #6c6c6c;
 }
+
+.testimonies-section .testimony img {
+    border: 3px solid #f1f3f6;
+}
+
+.testimonies-section .testimony h5 {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.testimonies-section .testimony p {
+    font-style: italic;
+    color: #555;
+}
+
 /*Review Content*/
 .review-content {
 	position: relative;

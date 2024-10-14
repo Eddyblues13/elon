@@ -11,10 +11,11 @@ Route::get('/about', function () {
     return view('welcome');
 });
 
-Route::get('forex', function () {
-    return view('categories.forex');
-});
+
 
 Auth::routes();
+
+
+Route::get('forex', [App\Http\Controllers\CategoriesController::class, 'forexPage'])->name('forex.page');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

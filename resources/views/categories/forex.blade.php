@@ -71,7 +71,21 @@
                     </div>
                 </div>
 
-                <!-- Call to Action -->
+                <!-- Real-Time Forex Trading Features -->
+                <div class="real-time-features mt-5">
+                    <h3>Real-Time Forex Trading Features</h3>
+                    <ul>
+                        <li>Live Market Updates: Stay informed with up-to-the-minute currency exchange rates.</li>
+                        <li>Automated Alerts: Receive notifications on significant market movements and trading
+                            opportunities.</li>
+                        <li>Interactive Charts: Customize your trading charts with various technical indicators and
+                            drawing tools.</li>
+                        <li>Secure Transactions: Ensure all your trading activities are protected with advanced security
+                            measures.</li>
+                    </ul>
+                </div>
+
+                <!-- Call to Action for Forex Trading -->
                 <div class="forex-cta text-center mt-4">
                     <h3>Ready to Start Trading?</h3>
                     <p>
@@ -81,6 +95,117 @@
                     <a href="" class="btn btn-primary">Start Trading Now</a>
                 </div>
 
+                <!-- Divider -->
+                <hr class="my-5">
+
+                <!-- Bitcoin Purchase Section -->
+                <div class="bitcoin-purchase mt-5">
+                    <div class="section-title">
+                        <h2>Where to Buy Bitcoin</h2>
+                    </div>
+                    <div class="bitcoin-info">
+                        <p>
+                            Interested in buying Bitcoin? You can easily purchase Bitcoin from any country using
+                            reliable crypto apps.
+                            We recommend installing the <strong>CHANGELLY</strong> app for a seamless buying experience.
+                        </p>
+                        <div class="crypto-apps">
+                            <h3>Recommended Crypto Apps</h3>
+                            <ul>
+                                <li>
+                                    <strong>Changelly</strong>: A user-friendly platform to buy Bitcoin and other
+                                    cryptocurrencies with ease.
+                                    <a href="https://changelly.com/download" target="_blank"
+                                        class="btn btn-secondary btn-sm">Download Changelly</a>
+                                </li>
+                                <!-- Future Crypto Apps can be added here -->
+                                {{--
+                                <li>
+                                    <strong>App Name</strong>: Description of the app.
+                                    <a href="app-download-link" target="_blank"
+                                        class="btn btn-secondary btn-sm">Download App</a>
+                                </li>
+                                --}}
+                            </ul>
+                        </div>
+                        <p>
+                            Stay tuned as we update our list of recommended crypto apps to provide you with the best
+                            options tailored to your needs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Call to Action for Bitcoin Purchase -->
+                <div class="bitcoin-cta text-center mt-4">
+                    <h3>Start Buying Bitcoin Today</h3>
+                    <p>
+                        Install the recommended crypto app and begin your journey into the world of cryptocurrencies.
+                        Secure, fast, and accessible from anywhere.
+                    </p>
+                    <a href="https://changelly.com/download" class="btn btn-success">Download Changelly</a>
+                </div>
+
+                <!-- Divider -->
+                <hr class="my-5">
+
+                <!-- Testimonies Section -->
+                <div class="testimonies-section mt-5">
+                    <div class="section-title">
+                        <h2>Success Stories</h2>
+                    </div>
+                    <div id="testimoniesCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="testimony text-center">
+                                    <img src="path_to_user_image1.jpg" alt="John Doe" class="rounded-circle mb-3"
+                                        width="100" height="100">
+                                    <h5>John Doe</h5>
+                                    <p>"Thanks to this platform, I was able to successfully trade Forex and withdraw my
+                                        profits seamlessly. Highly recommended!"</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimony text-center">
+                                    <img src="path_to_user_image2.jpg" alt="Jane Smith" class="rounded-circle mb-3"
+                                        width="100" height="100">
+                                    <h5>Jane Smith</h5>
+                                    <p>"The real-time trading features are top-notch. I made my first successful
+                                        withdrawal within a week of trading."</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimony text-center">
+                                    <img src="path_to_user_image3.jpg" alt="Mike Johnson" class="rounded-circle mb-3"
+                                        width="100" height="100">
+                                    <h5>Mike Johnson</h5>
+                                    <p>"Exceptional service and support! My Forex trades were profitable, and the
+                                        withdrawal process was quick and easy."</p>
+                                </div>
+                            </div>
+                            <!-- Add more carousel items as needed -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimoniesCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimoniesCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Call to Action for Testimonials -->
+                <div class="testimonies-cta text-center mt-4">
+                    <h3>Join Our Successful Traders</h3>
+                    <p>
+                        Start your Forex trading journey today and be featured in our success stories. Trade smart,
+                        withdraw successfully, and achieve your financial goals.
+                    </p>
+                    <a href="{{route('register')}}" class="btn btn-warning"> Get Started Now</a>
+                </div>
 
             </div>
         </div>

@@ -111,77 +111,69 @@
             <!-- Begin Li's Section Area -->
             <div class="col-lg-12">
                 <div class="li-section-title">
-                    <h2>
-                        <span>Categories</span>
-                    </h2>
+                    <h2><span>Categories</span></h2>
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <!-- Forex Trading Card -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-product-wrap">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="single-product-wrap h-100 d-flex flex-column">
                             <div class="product-image">
-                                <a href="#">
-                                    <img src="images/categories/forex.jpg" alt="Forex Trading">
-                                </a>
+                                <a href="{{route('forex.page')}}"><img src="images/categories/forex.jpg"
+                                        alt="Forex Trading" class="img-fluid"></a>
                             </div>
-                            <div class="product_desc">
-                                <h4><a class="product_name" href="#">Forex Trading</a></h4>
+                            <div class="product_desc mt-auto">
+                                <h4><a class="product_name" href="{{route('forex.page')}}">Forex Trading</a></h4>
                             </div>
                         </div>
                     </div>
 
                     <!-- Real Estate Card -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-product-wrap">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="single-product-wrap h-100 d-flex flex-column">
                             <div class="product-image">
-                                <a href="#">
-                                    <img src="images/categories/real-estate.jpg" alt="Real Estate">
-                                </a>
+                                <a href="#"><img src="images/categories/real-estate.jpg" alt="Real Estate"
+                                        class="img-fluid"></a>
                             </div>
-                            <div class="product_desc">
+                            <div class="product_desc mt-auto">
                                 <h4><a class="product_name" href="#">Real Estate: House for Sale and Rent</a></h4>
                             </div>
                         </div>
                     </div>
 
                     <!-- Cars for Sale Card -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-product-wrap">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="single-product-wrap h-100 d-flex flex-column">
                             <div class="product-image">
-                                <a href="#">
-                                    <img src="images/categories/cars.jpg" alt="Cars for Sale">
-                                </a>
+                                <a href="#"><img src="images/categories/cars.jpg" alt="Cars for Sale"
+                                        class="img-fluid"></a>
                             </div>
-                            <div class="product_desc">
+                            <div class="product_desc mt-auto">
                                 <h4><a class="product_name" href="#">Cars for Sale</a></h4>
                             </div>
                         </div>
                     </div>
 
                     <!-- Trucks for Sale and Rent Card -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-product-wrap">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="single-product-wrap h-100 d-flex flex-column">
                             <div class="product-image">
-                                <a href="#">
-                                    <img src="images/categories/trucks.jpg" alt="Trucks for Sale and Rent">
-                                </a>
+                                <a href="#"><img src="images/categories/trucks.jpg" alt="Trucks for Sale and Rent"
+                                        class="img-fluid"></a>
                             </div>
-                            <div class="product_desc">
+                            <div class="product_desc mt-auto">
                                 <h4><a class="product_name" href="#">Trucks for Sale and Rent</a></h4>
                             </div>
                         </div>
                     </div>
 
                     <!-- Home Equipment and Appliances Card -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-product-wrap">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="single-product-wrap h-100 d-flex flex-column">
                             <div class="product-image">
-                                <a href="#">
-                                    <img src="images/categories/home-appliances.jpg"
-                                        alt="Home Equipment and Appliances">
-                                </a>
+                                <a href="#"><img src="images/categories/home-appliances.jpg"
+                                        alt="Home Equipment and Appliances" class="img-fluid"></a>
                             </div>
-                            <div class="product_desc">
+                            <div class="product_desc mt-auto">
                                 <h4><a class="product_name" href="#">Home Equipment and Appliances for Sale</a></h4>
                             </div>
                         </div>
@@ -192,6 +184,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- Begin Li's Laptop Product Area -->
 <section class="product-area li-laptop-product pt-60 pb-45">
