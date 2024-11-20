@@ -17,7 +17,7 @@ class ApplianceController extends Controller
     }
 
 
-    public function viewappliances()
+    public function adminViewAppliances()
     {
         $appliances = Appliance::with('category')->paginate(10); // Fetch appliances with their category and paginate results
         return view('admin.appliances.view', compact('appliances'));

@@ -201,46 +201,53 @@ Route::prefix('admin')->group(function () {
 
         // Route::resource('plans', PlanController::class);
         // Group routes under 'admin' prefix and protect them with 'auth' middleware if needed
-        Route::prefix('admin')->name('admin.')->middleware(['admin'])->group(function () {
-            Route::resource('cars', App\Http\Controllers\Admin\CarController::class);
-            Route::get('view-cars', [App\Http\Controllers\Admin\CarController::class, 'viewCars'])->name('view.cars');
-            Route::resource('categories', App\Http\Controllers\Admin\CarCategoryController::class)->names([
-                'index'   => 'cars.categories.index',
-                'create'  => 'cars.categories.create',
-                'store'   => 'cars.categories.store',
-                'show'    => 'cars.categories.show',
-                'edit'    => 'cars.categories.edit',
-                'update'  => 'cars.categories.update',
-                'destroy' => 'cars.categories.destroy',
-            ]);
+        Route::name('admin.')
+            ->middleware(['admin'])
+            ->group(function () {
+                // Car resource routes
+                Route::resource('cars', App\Http\Controllers\Admin\CarController::class);
 
-            Route::resource('appliances', ApplianceController::class);
-            Route::get('view-appliances', [ApplianceController::class, 'viewAppliances'])->name('view.appliances');
-            Route::resource('appliance-categories', ApplianceCategoryController::class)->names([
-                'index'   => 'appliances.categories.index',
-                'create'  => 'appliances.categories.create',
-                'store'   => 'appliances.categories.store',
-                'show'    => 'appliances.categories.show',
-                'edit'    => 'appliances.categories.edit',
-                'update'  => 'appliances.categories.update',
-                'destroy' => 'appliances.categories.destroy',
-            ]);
+                // Additional car routes
+                Route::get('view-cars', [App\Http\Controllers\Admin\CarController::class, 'adminViewCars'])->name('view.cars');
+
+                // Car category resource routes with custom names
+                Route::resource('car-categories', App\Http\Controllers\Admin\CarCategoryController::class)->names([
+                    'index'   => 'cars.categories.index',
+                    'create'  => 'cars.categories.create',
+                    'store'   => 'cars.categories.store',
+                    'show'    => 'cars.categories.show',
+                    'edit'    => 'cars.categories.edit',
+                    'update'  => 'cars.categories.update',
+                    'destroy' => 'cars.categories.destroy',
+                ]);
+
+                Route::resource('appliances', App\Http\Controllers\Admin\ApplianceController::class);
+                Route::get('view-appliances', [App\Http\Controllers\Admin\ApplianceController::class, 'adminViewAppliances'])->name('view.appliances');
+                Route::resource('appliance-categories', App\Http\Controllers\Admin\ApplianceCategoryController::class)->names([
+                    'index'   => 'appliances.categories.index',
+                    'create'  => 'appliances.categories.create',
+                    'store'   => 'appliances.categories.store',
+                    'show'    => 'appliances.categories.show',
+                    'edit'    => 'appliances.categories.edit',
+                    'update'  => 'appliances.categories.update',
+                    'destroy' => 'appliances.categories.destroy',
+                ]);
 
 
-            Route::resource('trucks', TruckController::class);
-            Route::get('view-trucks', [TruckController::class, 'viewTrucks'])->name('view.trucks');
-            Route::resource('categories', TruckCategoryController::class)->names([
-                'index'   => 'trucks.categories.index',
-                'create'  => 'trucks.categories.create',
-                'store'   => 'trucks.categories.store',
-                'show'    => 'trucks.categories.show',
-                'edit'    => 'trucks.categories.edit',
-                'update'  => 'trucks.categories.update',
-                'destroy' => 'trucks.categories.destroy',
-            ]);
+                Route::resource('trucks', App\Http\Controllers\Admin\TruckController::class);
+                Route::get('view-trucks', [App\Http\Controllers\Admin\TruckController::class, 'adminViewTrucks'])->name('view.trucks');
+                Route::resource('truck-categories', App\Http\Controllers\Admin\TruckCategoryController::class)->names([
+                    'index'   => 'trucks.categories.index',
+                    'create'  => 'trucks.categories.create',
+                    'store'   => 'trucks.categories.store',
+                    'show'    => 'trucks.categories.show',
+                    'edit'    => 'trucks.categories.edit',
+                    'update'  => 'trucks.categories.update',
+                    'destroy' => 'trucks.categories.destroy',
+                ]);
 
-            Route::resource('houses', HouseController::class);
-        });
+                Route::resource('houses', App\Http\Controllers\Admin\HouseController::class);
+            });
     });
 });
 

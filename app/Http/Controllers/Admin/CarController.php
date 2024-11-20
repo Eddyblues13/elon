@@ -18,7 +18,7 @@ class CarController extends Controller
     }
 
 
-    public function viewCars()
+    public function adminViewCars()
     {
         $cars = Car::with('category')->paginate(10); // Fetch cars with their category and paginate results
         return view('admin.cars.view', compact('cars'));

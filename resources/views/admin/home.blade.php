@@ -5,8 +5,8 @@
             <div class="py-5 page-inner">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="pb-2 text-white fw-bold">Dashboard</h2>
-                        <h5 class="mb-2 text-white op-7">Welcome, {{Auth::guard('admin')->user()->name }}</h5>
+                        <h2 class="pb-2 text-dark fw-bold">Dashboard</h2>
+                        <h5 class="mb-2 text-dark op-7">Welcome, {{Auth::guard('admin')->user()->name }}</h5>
                     </div>
                     <div class="py-2 ml-md-auto py-md-0">
                         <a href="" class="mr-2 btn btn-success btn-border ">Deposits</a>

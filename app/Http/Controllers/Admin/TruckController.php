@@ -17,7 +17,7 @@ class TruckController extends Controller
     }
 
 
-    public function viewTrucks()
+    public function adminViewTrucks()
     {
         $trucks = Truck::with('category')->paginate(10); // Fetch trucks with their category and paginate results
         return view('admin.trucks.view', compact('trucks'));
