@@ -92,7 +92,7 @@
                         Click the button below to create your trading account and start real-time trading. Join the
                         world of Forex trading and take control of your financial future.
                     </p>
-                    <a href="" class="btn btn-primary">Start Trading Now</a>
+                    <a href="{{route('register')}}" class="btn btn-primary">Start Trading Now</a>
                 </div>
 
                 <!-- Divider -->
@@ -107,7 +107,8 @@
                         <p>
                             Interested in buying Bitcoin? You can easily purchase Bitcoin from any country using
                             reliable crypto apps.
-                            We recommend installing the <strong>CHANGELLY</strong> app for a seamless buying experience.
+                            We recommend installing the <strong>CHANGELLY</strong> or <strong>REMITANO</strong> apps for
+                            a seamless buying experience.
                         </p>
                         <div class="crypto-apps">
                             <h3>Recommended Crypto Apps</h3>
@@ -117,6 +118,12 @@
                                     cryptocurrencies with ease.
                                     <a href="https://changelly.com/download" target="_blank"
                                         class="btn btn-secondary btn-sm">Download Changelly</a>
+                                </li>
+                                <li>
+                                    <strong>Remitano</strong>: A trusted platform offering secure and convenient Bitcoin
+                                    purchases with local payment options.
+                                    <a href="https://remitano.com" target="_blank"
+                                        class="btn btn-secondary btn-sm">Visit Remitano</a>
                                 </li>
                                 <!-- Future Crypto Apps can be added here -->
                                 {{--
@@ -143,7 +150,9 @@
                         Secure, fast, and accessible from anywhere.
                     </p>
                     <a href="https://changelly.com/download" class="btn btn-success">Download Changelly</a>
+                    <a href="https://remitano.com" class="btn btn-success">Visit Remitano</a>
                 </div>
+
 
                 <!-- Divider -->
                 <hr class="my-5">
