@@ -1,4 +1,4 @@
-@include('home.header')
+@include('layouts.header')
 <!-- Header Area End Here -->
 <!-- Begin Slider With Banner Area -->
 <div class="slider-with-banner">
@@ -131,11 +131,12 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="single-product-wrap h-100 d-flex flex-column">
                             <div class="product-image">
-                                <a href="#"><img src="images/categories/real-estate.jpg" alt="Real Estate"
+                                <a href="/shop/houses"><img src="images/categories/real-estate.jpg" alt="Real Estate"
                                         class="img-fluid"></a>
                             </div>
                             <div class="product_desc mt-auto">
-                                <h4><a class="product_name" href="#">Real Estate: House for Sale and Rent</a></h4>
+                                <h4><a class="product_name" href="/shop/houses">Real Estate: House for Sale and Rent</a>
+                                </h4>
                             </div>
                         </div>
                     </div>
@@ -144,11 +145,11 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="single-product-wrap h-100 d-flex flex-column">
                             <div class="product-image">
-                                <a href="#"><img src="images/categories/cars.jpg" alt="Cars for Sale"
+                                <a href="/shop/cars"><img src="images/categories/cars.jpg" alt="Cars for Sale"
                                         class="img-fluid"></a>
                             </div>
                             <div class="product_desc mt-auto">
-                                <h4><a class="product_name" href="#">Cars for Sale</a></h4>
+                                <h4><a class="product_name" href="/shop/cars">Cars for Sale</a></h4>
                             </div>
                         </div>
                     </div>
@@ -157,11 +158,11 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="single-product-wrap h-100 d-flex flex-column">
                             <div class="product-image">
-                                <a href="#"><img src="images/categories/trucks.jpg" alt="Trucks for Sale and Rent"
-                                        class="img-fluid"></a>
+                                <a href="/shop/trucks"><img src="images/categories/trucks.jpg"
+                                        alt="Trucks for Sale and Rent" class="img-fluid"></a>
                             </div>
                             <div class="product_desc mt-auto">
-                                <h4><a class="product_name" href="#">Trucks for Sale and Rent</a></h4>
+                                <h4><a class="product_name" href="/shop/trucks">Trucks for Sale and Rent</a></h4>
                             </div>
                         </div>
                     </div>
@@ -170,11 +171,12 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="single-product-wrap h-100 d-flex flex-column">
                             <div class="product-image">
-                                <a href="#"><img src="images/categories/home-appliances.jpg"
+                                <a href="/shop/appliances"><img src="images/categories/home-appliances.jpg"
                                         alt="Home Equipment and Appliances" class="img-fluid"></a>
                             </div>
                             <div class="product_desc mt-auto">
-                                <h4><a class="product_name" href="#">Home Equipment and Appliances for Sale</a></h4>
+                                <h4><a class="product_name" href="/shop/appliances">Home Equipment and Appliances for
+                                        Sale</a></h4>
                             </div>
                         </div>
                     </div>
@@ -2022,4 +2024,4 @@
     </div>
 </section>
 <!-- Li's Trendding Products Area End Here -->
-@include('home.footer')
+@include('layouts.footer')

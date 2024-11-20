@@ -1,4 +1,4 @@
-@include('home.header')
+@include('layouts.header')
 <section class="forex-trading-area pt-60 pb-45">
     <div class="container">
         <div class="row">
@@ -211,4 +211,4 @@
         </div>
     </div>
 </section>
-@include('home.footer')
+@include('layouts.footer')

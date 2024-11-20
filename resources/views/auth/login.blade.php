@@ -1,5 +1,5 @@
-{{-- resources/views/auth/login.blade.php --}}
-@extends('home.header') {{-- Assuming 'home.header' contains the opening HTML tags and navigation --}}
+@include('layouts.header')
+
 
 <section class="login-area pt-60 pb-60">
     <div class="container">
@@ -69,4 +69,4 @@
     </div>
 </section>
 
-@include('home.footer') {{-- Assuming 'home.footer' contains the closing HTML tags --}}
+@include('layouts.footer') {{-- Assuming 'home.footer' contains the closing HTML tags --}}
