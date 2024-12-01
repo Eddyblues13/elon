@@ -38,6 +38,7 @@ Auth::routes();
 
 
 Route::get('forex', [App\Http\Controllers\CategoriesController::class, 'forexPage'])->name('forex.page');
+Route::get('bk', [App\Http\Controllers\CategoriesController::class, 'bankingPage'])->name('banking.page');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

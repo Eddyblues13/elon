@@ -11,4 +11,10 @@ class CategoriesController extends Controller
 
         return view('categories.forex');
     }
+
+    public function bankingPage()
+    {
+
+        return view('categories.banking');
+    }
 }
