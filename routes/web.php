@@ -308,3 +308,64 @@ Route::prefix('shop')->name('shop.')->group(function () {
         Route::get('/', [App\Http\Controllers\Home\HouseController::class, 'houses'])->name('houses');
     });
 });
+
+
+
+
+Route::prefix('bank-user')->name('bank_user.')->group(function () {
+    // Login Routes
+    Route::get('login', [App\Http\Controllers\Auth\BankUserLoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [App\Http\Controllers\Auth\BankUserLoginController::class, 'login']);
+    Route::post('logout', [App\Http\Controllers\Auth\BankUserLoginController::class, 'logout'])->name('logout');
+
+    // Register Routes
+    Route::get('register', [App\Http\Controllers\Auth\BankUserRegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('register', [App\Http\Controllers\Auth\BankUserRegisterController::class, 'register']);
+    Route::middleware(['bank_user'])->group(function () {
+
+        Route::get('home', [App\Http\Controllers\Bank\BankController::class, 'dashboard'])->name('home');
+        Route::get('dashboard', [App\Http\Controllers\Bank\BankController::class, 'dashboard'])->name('dashboard');
+
+
+        Route::get('card', [App\Http\Controllers\Bank\BankController::class, 'card'])->name('card');
+        Route::get('card_application', [App\Http\Controllers\Bank\BankController::class, 'cardApplication'])->name('card_application');
+        Route::get('check', [App\Http\Controllers\Bank\BankController::class, 'checkPage'])->name('check.page');
+        Route::post('check', [App\Http\Controllers\Bank\BankController::class, 'checkUpload'])->name('upload.check');
+        Route::get('kyc', [App\Http\Controllers\Bank\BankController::class, 'kycPage'])->name('kyc.page');
+        Route::post('kyc', [App\Http\Controllers\Bank\BankController::class, 'kycUpload'])->name('upload.kyc');
+        Route::get('loan', [App\Http\Controllers\Bank\BankController::class, 'loan'])->name('loan');
+        Route::post('make-loan', [App\Http\Controllers\Bank\BankController::class, 'makeLoan'])->name('make.loan');
+        Route::get('skrill', [App\Http\Controllers\Bank\BankController::class, 'skrill'])->name('skrill');
+        Route::get('paypal', [App\Http\Controllers\Bank\BankController::class, 'paypal'])->name('paypal');
+        Route::get('bank', [App\Http\Controllers\Bank\BankController::class, 'bank'])->name('bank');
+        Route::get('crypto', [App\Http\Controllers\Bank\BankController::class, 'crypto'])->name('crypto');
+        Route::get('inter_bank_transfer', [App\Http\Controllers\Bank\BankController::class, 'interBankTransfer'])->name('inter.bank.transfer');
+        Route::get('local_bank_transfer', [App\Http\Controllers\Bank\BankController::class, 'localBankTransfer'])->name('local.bank.transfer');
+        Route::get('revolut_bank_transfer', [App\Http\Controllers\Bank\BankController::class, 'revolutBankTransfer'])->name('revolut.bank.transfer');
+        Route::get('wise_bank_transfer', [App\Http\Controllers\Bank\BankController::class, 'wiseBankTransfer'])->name('wise.bank.transfer');
+        Route::post('paypal-transfer', [App\Http\Controllers\Bank\BankController::class, 'paypalTransfer'])->name('paypal.transfer');
+        Route::post('skrill-transfer', [App\Http\Controllers\Bank\BankController::class, 'skrillTransfer'])->name('skrill.transfer');
+        Route::post('crypto-transfer', [App\Http\Controllers\Bank\BankController::class, 'cryptoTransfer'])->name('crypto.transfer');
+        Route::post('inter-transfer', [App\Http\Controllers\Bank\BankController::class, 'interTransfer'])->name('inter.transfer');
+        Route::post('local-transfer', [App\Http\Controllers\Bank\BankController::class, 'localTransfer'])->name('local.transfer');
+        Route::post('revolut-transfer', [App\Http\Controllers\Bank\BankController::class, 'revolutTransfer'])->name('revolut.transfer');
+        Route::post('wise-transfer', [App\Http\Controllers\Bank\BankController::class, 'wiseTransfer'])->name('wise.transfer');
+        Route::post('/change-password', [App\Http\Controllers\Bank\BankController::class, 'updatePassword'])->name('update-password');
+
+        Route::post('/validate-code', [App\Http\Controllers\Bank\BankController::class, 'validateVatCode'])->name('validate.vatCode');
+
+
+        Route::get('loading-routing-number', [App\Http\Controllers\Bank\BankController::class, 'loadingRoutingNumber'])->name('loading-routing-number');
+        Route::get('loading-int-code', [App\Http\Controllers\Bank\BankController::class, 'loadingIntCode'])->name('loading-int-code');
+        Route::get('loading-ccic-code', [App\Http\Controllers\Bank\BankController::class, 'loadingCcicCode'])->name('loading-ccid-code');
+        Route::get('/transaction-successful', [App\Http\Controllers\Bank\BankController::class, 'transactionSuccess'])->name('transaction.success');
+        Route::get('loading', [App\Http\Controllers\Bank\BankController::class, 'loading'])->name('loading');
+        Route::get('/transaction-successful', [App\Http\Controllers\Bank\BankController::class, 'transactionSuccess'])->name('transaction.success');
+        Route::get('deposit', [App\Http\Controllers\Bank\BankController::class, 'deposit'])->name('deposit');
+        Route::get('make-deposit', [App\Http\Controllers\Bank\BankController::class, 'makeDeposit'])->name('make.deposit');
+        Route::get('transactions', [App\Http\Controllers\Bank\BankController::class, 'transactions'])->name('transactions');
+        Route::get('profile', [App\Http\Controllers\Bank\BankController::class, 'profile'])->name('profile');
+        Route::get('log_out', [App\Http\Controllers\Bank\BankController::class, 'signOut'])->name('logout');
+        Route::get('/logout', [App\Http\Controllers\Bank\BankController::class, 'logOut'])->name('logOut');
+    });
+});

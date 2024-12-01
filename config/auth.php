@@ -50,6 +50,11 @@ return [
             'driver' => 'session',
             'provider' => 'customers',
         ],
+
+        'bank_user' => [
+            'driver' => 'session',
+            'provider' => 'bank_users',
+        ],
     ],
 
     /*
@@ -84,6 +89,11 @@ return [
         'customers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Customer::class,
+        ],
+
+        'bank_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\BankUser::class,
         ],
 
         // 'users' => [
