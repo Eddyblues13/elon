@@ -91,8 +91,8 @@
 						<div class="card-body">
 							<div class="m-0">
 								<label class="form-label">Amount</label>
-								<input type="number" name="amount" class="form-control" style="color:blue"
-									placeholder="Enter Amount ({{Auth::user()->currency}})" required />
+								<input type="number" name="amount" class="form-control" style="color:blue" placeholder="Enter Amount ({{Auth::guard('bank_user')->user()->currency
+}})" required />
 							</div>
 						</div>
 					</div>

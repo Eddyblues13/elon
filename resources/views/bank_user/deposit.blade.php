@@ -22,20 +22,22 @@
                                     <div class="me-auto">
                                         <h5 class="fs-20 text-black font-w600">Main Balance</h5>
                                         <span
-                                            class="text-num text-black font-w600">{{Auth::user()->currency}}{{number_format($balance,
+                                            class="text-num text-black font-w600">{{Auth::guard('bank_user')->user()->currency
+                                            }}{{number_format($balance,
                                             2, '.', ',')}}</span>
                                     </div>
                                 </div>
                                 <div class="me-3 mb-3">
                                     <p class="fs-14 mb-1">ACC TYPE</p>
-                                    <span class="text-black">{{Auth::user()->account_type}}</span>
+                                    <span class="text-black">{{Auth::guard('bank_user')->user()->account_type}}</span>
                                 </div>
                                 <div class="me-3 mb-3">
                                     <p class="fs-14 mb-1">ACCOUNT OWNER</p>
-                                    <span class="text-black">{{Auth::user()->first_name}}
-                                        {{Auth::user()->last_name}}</span>
+                                    <span class="text-black">{{Auth::guard('bank_user')->user()->first_name}}
+                                        {{Auth::guard('bank_user')->user()->last_name}}</span>
                                 </div>
-                                <span class="fs-20 text-black font-w500 me-3 mb-3">{{Auth::user()->a_number}}</span>
+                                <span
+                                    class="fs-20 text-black font-w500 me-3 mb-3">{{Auth::guard('bank_user')->user()->a_number}}</span>
                             </div>
                             <div class="card-body">
                                 <div class="row align-items-center">

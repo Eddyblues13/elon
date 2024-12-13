@@ -21,7 +21,8 @@
 
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h3>Welcome <span class="text-danger">{{ Auth::guard('bank_user')->user()->first_name }} {{
+                        <h3>Welcome <span class="text-danger">{{ Auth::guard('bank_user')->user()->first_name }}
+                                {{
                                 Auth::guard('bank_user')->user()->last_name }},</span></h3>
                         <h6>Total Balance</h6>
                         <h3 class="fw-bold text-black">
@@ -45,7 +46,8 @@
                 <!--</div>-->
 
                 <div class="mt-3">
-                    <p class="mb-0 text-primary"><strong>{{ Auth::guard('bank_user')->user()->a_number }}</strong> -
+                    <p class="mb-0 text-primary"><strong>{{ Auth::guard('bank_user')->user()->a_number
+                            }}</strong> -
                         ACTIVE</p>
                 </div>
             </div>
@@ -54,7 +56,8 @@
         <!-- Ledger Balance Section -->
         <div class="card mb-4">
             <div class="card-body">
-                <h6>Ledger balance: {{Auth::guard('bank_user')->user()->currency}}{{number_format($balance, 2)}}</h6>
+                <h6>Ledger balance: {{Auth::guard('bank_user')->user()->currency}}{{number_format($balance, 2)}}
+                </h6>
             </div>
         </div>
 

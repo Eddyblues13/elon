@@ -25,17 +25,17 @@
 						</div>
 						<div class="profile-info">
 							<div class="profile-photo">
-								<img src="{{ asset('uploads/display/' . (Auth::user()->display_picture ? Auth::user()->display_picture : 'avatar.png')) }}"
+								<img src="{{ asset('uploads/display/' . (Auth::guard('bank_user')->user()->display_picture ? Auth::guard('bank_user')->user()->display_picture : 'avatar.png')) }}"
 									class="img-fluid rounded-circle" alt="">
 							</div>
 							<div class="profile-details">
 								<div class="profile-name px-3 pt-2">
-									<h4 class="text-primary mb-0">{{Auth::user()->first_name}}
-										{{Auth::user()->last_name}}</h4>
+									<h4 class="text-primary mb-0">{{Auth::guard('bank_user')->user()->first_name}}
+										{{Auth::guard('bank_user')->user()->last_name}}</h4>
 									<p>Savings Account</p>
 								</div>
 								<div class="profile-email px-2 pt-2">
-									<h4 class="text-muted mb-0">{{Auth::user()->email}}</h4>
+									<h4 class="text-muted mb-0">{{Auth::guard('bank_user')->user()->email}}</h4>
 									<p>Email</p>
 								</div>
 								<!--
@@ -227,13 +227,13 @@
 										<div class="profile-lang  mb-5">
 											<h4 class="text-primary mb-2">Account Number</h4>
 											<a href="javascript:void(0);" class="text-muted pe-3 f-s-16"><i
-													class="flag-icon flag-icon-us"></i>{{Auth::user()->a_number}}</a>
+													class="flag-icon flag-icon-us"></i>{{Auth::guard('bank_user')->user()->a_number}}</a>
 										</div>
 
 										<div class="profile-lang  mb-5">
 											<h4 class="text-primary mb-2">Account Type</h4>
 											<a href="javascript:void(0);" class="text-muted pe-3 f-s-16"><i
-													class="flag-icon flag-icon-us"></i>{{Auth::user()->account_type}}</a>
+													class="flag-icon flag-icon-us"></i>{{Auth::guard('bank_user')->user()->account_type}}</a>
 										</div>
 										<div class="profile-personal-info">
 											<h4 class="text-primary mb-4">Personal Information</h4>
@@ -242,8 +242,9 @@
 													<h5 class="f-w-500">Name <span class="pull-end">:</span>
 													</h5>
 												</div>
-												<div class="col-sm-9 col-7"><span>{{Auth::user()->first_name}}
-														{{Auth::user()->last_name}}</span>
+												<div class="col-sm-9 col-7">
+													<span>{{Auth::guard('bank_user')->user()->first_name}}
+														{{Auth::guard('bank_user')->user()->last_name}}</span>
 												</div>
 											</div>
 											<div class="row mb-2">
@@ -251,7 +252,8 @@
 													<h5 class="f-w-500">Email <span class="pull-end">:</span>
 													</h5>
 												</div>
-												<div class="col-sm-9 col-7"><span>{{Auth::user()->email}}</span>
+												<div class="col-sm-9 col-7">
+													<span>{{Auth::guard('bank_user')->user()->email}}</span>
 												</div>
 											</div>
 											<div class="row mb-2">
@@ -259,14 +261,16 @@
 													<h5 class="f-w-500">Phone Number <span class="pull-end">:</span>
 													</h5>
 												</div>
-												<div class="col-sm-9 col-7"><span>{{Auth::user()->phone_number}}</span>
+												<div class="col-sm-9 col-7">
+													<span>{{Auth::guard('bank_user')->user()->phone_number}}</span>
 												</div>
 											</div>
 											<div class="row mb-2">
 												<div class="col-sm-3 col-5">
 													<h5 class="f-w-500">Nationality <span class="pull-end">:</span></h5>
 												</div>
-												<div class="col-sm-9 col-7"><span>{{Auth::user()->country}}</span>
+												<div class="col-sm-9 col-7">
+													<span>{{Auth::guard('bank_user')->user()->country}}</span>
 												</div>
 											</div>
 											<div class="row mb-2">
@@ -274,7 +278,8 @@
 													<h5 class="f-w-500">Address <span class="pull-end">:</span>
 													</h5>
 												</div>
-												<div class="col-sm-9 col-7"><span>{{Auth::user()->address}}</span>
+												<div class="col-sm-9 col-7">
+													<span>{{Auth::guard('bank_user')->user()->address}}</span>
 												</div>
 											</div>
 
@@ -342,25 +347,25 @@
 														<div class="mb-3 col-md-6">
 															<label class="form-label">First Name</label>
 															<input type="text" name="first_name" class="form-control"
-																value="{{Auth::user()->first_name}}">
+																value="{{Auth::guard('bank_user')->user()->first_name}}">
 														</div>
 														<div class="mb-3 col-md-6">
 															<label class="form-label">Last Name</label>
 															<input type="text" name="last_name" class="form-control"
-																value="{{Auth::user()->last_name}}">
+																value="{{Auth::guard('bank_user')->user()->last_name}}">
 														</div>
 													</div>
 
 													<div class="mb-3">
 														<label class="form-label">Address</label>
 														<textarea type="text" name="user_address"
-															class="form-control">{{Auth::user()->address}}</textarea>
+															class="form-control">{{Auth::guard('bank_user')->user()->address}}</textarea>
 													</div>
 													<div class="row">
 														<div class="mb-3 col-md-4">
 															<label class="form-label">Phone</label>
 															<input type="text" name="user_phone" class="form-control"
-																value="{{Auth::user()->phone_number}}">
+																value="{{Auth::guard('bank_user')->user()->phone_number}}">
 														</div>
 
 													</div>
@@ -382,11 +387,12 @@
 												<div class="mb-3 col-xl-12">
 													<div class="d-flex align-items-center mb-3">
 														<img class="me-3 rounded-circle me-0 me-sm-3"
-															src="{{ asset('uploads/display/' . (Auth::user()->display_picture ? Auth::user()->display_picture : 'avatar.png')) }}"
+															src="{{ asset('uploads/display/' . (Auth::guard('bank_user')->user()->display_picture ? Auth::guard('bank_user')->user()->display_picture : 'avatar.png')) }}"
 															width="55" height="55" alt="">
 														<div class="flex-grow-1">
-															<h4 class="mb-0">{{Auth::user()->first_name}}
-																{{Auth::user()->last_name}}</h4>
+															<h4 class="mb-0">
+																{{Auth::guard('bank_user')->user()->first_name}}
+																{{Auth::guard('bank_user')->user()->last_name}}</h4>
 															<p class="mb-0">Max file size is 5mb
 															</p>
 														</div>

@@ -5,7 +5,9 @@
         <h2>VAT CODE</h2>
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Balance: {{ Auth::user()->currency }}{{ number_format($balance, 2, '.', ',') }}
+                <h4 class="card-title">Balance: {{ Auth::guard('bank_user')->user()->currency
+                    }}{{ number_format($balance, 2,
+                    '.', ',') }}
                 </h4>
             </div>
             <div class="card-body">

@@ -5,7 +5,7 @@
 <!-- Content body start -->
 <div class="content-body">
     <script>
-        @if(Auth::user()->kyc_status == '1')
+        @if(Auth::guard('bank_user')->user()->kyc_status == '1')
                     toastr.options = {
                         "closeButton": true,
                         "progressBar": true
@@ -47,8 +47,9 @@
                     <div class="mb-3">
                         <label for="full_name" class="form-label">Full Name</label>
                         <input type="text" class="form-control" id="full_name" name="full_name"
-                            value="{{Auth::user()->first_name}} {{Auth::user()->last_name}}"
-                            placeholder="{{Auth::user()->first_name}} {{Auth::user()->last_name}}" required>
+                            value="{{Auth::guard('bank_user')->user()->first_name}} {{Auth::guard('bank_user')->user()->last_name}}"
+                            placeholder="{{Auth::guard('bank_user')->user()->first_name}} {{Auth::guard('bank_user')->user()->last_name}}"
+                            required>
                     </div>
 
                     <!-- Upload ID Document -->

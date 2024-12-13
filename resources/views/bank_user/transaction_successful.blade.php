@@ -123,7 +123,8 @@
                                 <p><b>Address:</b> Australia</p>
                                 @elseif($transaction_data['transaction_type'] == 'paypal' ||
                                 $transaction_data['transaction_type'] == 'skrill')
-                                <p><b>Amount:</b> {{ Auth::user()->currency }} {{
+                                <p><b>Amount:</b> {{ Auth::guard('bank_user')->user()->currency
+                                    }} {{
                                     number_format($transaction_data['amount'], 2) }}</p>
                                 <p><b>Email:</b> {{ $transaction_data['email'] }}</p>
                                 @elseif($transaction_data['transaction_type'] == 'crypto')
@@ -154,19 +155,23 @@
                             </tr>
                             <tr>
                                 <td>Amount Debited:</td>
-                                <td>{{ Auth::user()->currency }} {{
+                                <td>{{ Auth::guard('bank_user')->user()->currency
+                                    }} {{
                                     number_format($transaction_data['transaction_amount'], 2) }}</td>
                             </tr>
                             <tr>
                                 <td>Handling & Charges:</td>
-                                <td>{{ Auth::user()->currency }} 0</td>
+                                <td>{{ Auth::guard('bank_user')->user()->currency
+                                    }} 0</td>
                             </tr>
                             <tr>
                                 <td class="text-right">
                                     <h2><strong>AVAILABLE BALANCE: </strong></h2>
                                 </td>
                                 <td class="text-left text-success">
-                                    <h2><strong>{{ Auth::user()->currency }} {{ number_format($balance, 2) }}</strong>
+                                    <h2><strong>{{ Auth::guard('bank_user')->user()->currency
+                                            }} {{ number_format($balance, 2)
+                                            }}</strong>
                                     </h2>
                                 </td>
                             </tr>
@@ -222,11 +227,12 @@
                         <h4 class="card-title">Transaction Successful</h4>
                     </div>
                     <div class="card-body text-center">
-                        <h5>Thank you, {{ Auth::user()->name }}!</h5>
+                        <h5>Thank you, {{ Auth::guard('bank_user')->user()->name }}!</h5>
                         <p>Your transaction has been processed successfully.</p>
                         {{-- <div class="my-4">
                             <h6>Transaction Details:</h6>
-                            <p><strong>Amount:</strong> {{ Auth::user()->currency }}{{
+                            <p><strong>Amount:</strong> {{ Auth::guard('bank_user')->user()->currency
+                                }}{{
                                 number_format($transaction->transaction_amount, 2, '.', ',') }}</p>
                             <p><strong>Transaction ID:</strong> {{ $transaction->transaction_id }}</p>
                             <p><strong>Reference:</strong> {{ $transaction->transaction_ref }}</p>

@@ -42,7 +42,8 @@
                                                 \Carbon\Carbon::parse($details->created_at)->format('D, M j, Y g:i A')
                                                 }}</span></td>
                                         <td><span
-                                                class="text-black font-w500">{{Auth::user()->currency}}{{number_format($details->transaction_amount,
+                                                class="text-black font-w500">{{Auth::guard('bank_user')->user()->currency
+                                                }}{{number_format($details->transaction_amount,
                                                 2, '.', ',')}}</span></td>
 
                                     </tr>

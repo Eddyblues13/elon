@@ -27,7 +27,9 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Balance: {{Auth::user()->currency}}{{number_format($balance, 2, '.',
+                        <h4 class="card-title">Balance: {{Auth::guard('bank_user')->user()->currency
+                            }}{{number_format($balance,
+                            2, '.',
                             ',')}}</h4>
                     </div>
                     <div class="card-body">
@@ -58,7 +60,8 @@
                                         <div class="form-group mb-3">
                                             <label>Email</label>
                                             <input id="pin_account_number" type="email" name="email"
-                                                class="form-control" placeholder="{{Auth::user()->email}}">
+                                                class="form-control"
+                                                placeholder="{{Auth::guard('bank_user')->user()->email}}">
                                         </div>
 
 

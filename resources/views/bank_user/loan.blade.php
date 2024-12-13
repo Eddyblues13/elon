@@ -35,7 +35,9 @@
                         <div class="media align-items-center invoice-card">
                             <div class="media-body">
                                 <h2 class="fs-38 text-black font-w600">
-                                    {{Auth::user()->currency}}{{number_format($outstanding_loan, 2, '.', ',')}}</h2>
+                                    {{Auth::guard('bank_user')->user()->currency
+                                    }}{{number_format($outstanding_loan, 2, '.',
+                                    ',')}}</h2>
                                 <span class="fs-18">Outstanding</span>
                             </div>
                             <span class="p-3 border ms-3 rounded-circle">
@@ -56,7 +58,9 @@
                         <div class="media align-items-center invoice-card">
                             <div class="media-body">
                                 <h2 class="fs-38 text-black font-w600">
-                                    {{Auth::user()->currency}}{{number_format(Auth::user()->eligible_loan, 2, '.',
+                                    {{Auth::guard('bank_user')->user()->currency
+                                    }}{{number_format(Auth::guard('bank_user')->user()->eligible_loan,
+                                    2, '.',
                                     ',')}}</< /h2>
                                     <span class="fs-18">Eligible Amount</span>
                             </div>
@@ -81,7 +85,9 @@
                         <div class="media align-items-center invoice-card">
                             <div class="media-body">
                                 <h2 class="fs-38 text-black font-w600">
-                                    {{Auth::user()->currency}}{{number_format($pending_loan, 2, '.', ',')}}</h2>
+                                    {{Auth::guard('bank_user')->user()->currency
+                                    }}{{number_format($pending_loan, 2, '.', ',')}}
+                                </h2>
                                 <span class="fs-18">Pending</span>
                             </div>
                             <span class="p-3 border ms-3 rounded-circle">
@@ -138,7 +144,7 @@
                                         \Carbon\Carbon::parse($details->transaction_created_at)->format('D, M j, Y g:i
                                         A') }}</span></td>
 
-                                <td><span class="text-black">{{Auth::user()->a_number}}</span></td>
+                                <td><span class="text-black">{{Auth::guard('bank_user')->user()->a_number}}</span></td>
                                 <td class="text-center">
                                     @if($details->transaction_status == '1')
                                     <a href="javascript:void(0)" class="btn btn-success btn-rounded">Completed</a>

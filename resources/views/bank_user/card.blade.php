@@ -66,17 +66,19 @@
                         <div class="card">
                             <div class="card-body">
                                 <i class="bi bi-plus-square"></i>
-                                <p>The Imperial Premium Virtual {{Auth::user()->id}} Card is a digital payment card
+                                <p>The Imperial Premium Virtual {{Auth::guard('bank_user')->user()->id}} Card is a
+                                    digital
+                                    payment card
                                     designed to facilitate frequent online shoppers with a secure and flexible
                                     alternative to physical payment cards. The virtual card is instantly issued upon
                                     request.</p>
                                 <div class="btn-group align-items-center">
-                                    <a href="{{route('bank_user.request.card', Auth::user()->id)}}"
+                                    <a href="{{route('bank_user.request.card', Auth::guard('bank_user')->user()->id)}}"
                                         class="btn btn-success active" aria-current="page">Request for</a>
-                                    <a href="{{route('bank_user.request.card', Auth::user()->id)}}"
+                                    <a href="{{route('bank_user.request.card', Auth::guard('bank_user')->user()->id)}}"
                                         class="btn btn-success">a
                                         New</a>
-                                    <a href="{{route('bank_user.request.card', Auth::user()->id)}}"
+                                    <a href="{{route('bank_user.request.card', Auth::guard('bank_user')->user()->id)}}"
                                         class="btn btn-success">Virtual Card</a>
                                 </div>
                             </div>

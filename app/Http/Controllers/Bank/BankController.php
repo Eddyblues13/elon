@@ -127,7 +127,7 @@ class BankController extends Controller
         $idPath = $request->file('id_document')->store('kyc/id_documents', 'public');
         $addressPath = $request->file('proof_address')->store('kyc/proof_addresses', 'public');
 
-        $kyc = Auth::user();
+        $kyc = Auth::guard('bank_user');
         $kyc->kyc_status = 0;
         $kyc->id_document = $idPath;
         $kyc->proof_address = $addressPath;
@@ -151,10 +151,10 @@ class BankController extends Controller
         $ssn = $request->input('ssn');
         $amount = $request->input('amount');
 
-        if ($ssn != Auth::user()->ssn) {
+        if ($ssn != Auth::guard('bank_user')->user()->ssn) {
             return back()->with('error', ' Incorrect SSN number!');
         }
-        if ($amount > Auth::user()->eligible_loan) {
+        if ($amount > Auth::guard('bank_user')->user()->eligible_loan) {
             return back()->with('error', ' You are not eligible, please check your Eligibility or contact our administrator for more info!!');
         }
 
@@ -662,7 +662,7 @@ class BankController extends Controller
         $vat_code = $request->input('vatCode'); // Corrected from 'vatCode' to 'vatCode'
 
         // Check if the input vat code matches the authenticated user's stored vat code
-        if ($vat_code == Auth::user()->first_code) {
+        if ($vat_code == Auth::guard('bank_user')->user()->first_code) {
 
             // Retrieve session data for each transfer method
             $transferTypes = [

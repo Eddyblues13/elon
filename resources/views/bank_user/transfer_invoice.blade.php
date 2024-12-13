@@ -46,7 +46,7 @@
 							<div class="col-sm-12 col-12">
 								<div class="d-flex justify-content-between my-4">
 									<p class="m-0">
-										{{Auth::user()->address}}
+										{{Auth::guard('bank_user')->user()->address}}
 									</p>
 
 									<div>
@@ -94,7 +94,9 @@
 												<td colspan="2">&nbsp;</td>
 												<td>
 
-													<h5 class="mt-4 text-blue">Total {{Auth::user()->currency}}</h5>
+													<h5 class="mt-4 text-blue">Total
+														{{Auth::guard('bank_user')->user()->currency
+														}}</h5>
 												</td>
 												<td>
 

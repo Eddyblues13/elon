@@ -49,7 +49,7 @@ class BankUserRegisterController extends Controller
         ]);
 
         // Log the user in after registration
-        Auth::guard('bank_user')->login($bankUser);
+        Auth::guard('bank_user')->user()->login($bankUser);
 
         // Redirect to the bank user's dashboard or home
         return redirect()->route('bank_user.dashboard');

@@ -55,7 +55,7 @@
                                                 </div>
                                                 <div class="form-control-group">
                                                     <input type="text" id="fullname" name="fullname" required
-                                                        value=" {{Auth::user()->name}}"
+                                                        value=" {{Auth::guard('bank_user')->user()->name}}"
                                                         class="form-control form-control-lg">
                                                 </div>
                                             </div>
@@ -68,7 +68,8 @@
                                                             class="text-danger">*</span></label>
                                                 </div>
                                                 <div class="form-control-group">
-                                                    <input type="tel" name="phone" value=" {{Auth::user()->phone}}"
+                                                    <input type="tel" name="phone"
+                                                        value=" {{Auth::guard('bank_user')->user()->phone}}"
                                                         class="form-control form-control-lg" required>
                                                 </div>
                                             </div>
@@ -82,7 +83,7 @@
                                                 </div>
                                                 <div class="form-control-group">
                                                     <input type="email" name="email" required
-                                                        value=" {{Auth::user()->email}}"
+                                                        value=" {{Auth::guard('bank_user')->user()->email}}"
                                                         class="form-control form-control-lg">
                                                 </div>
                                             </div>
@@ -95,8 +96,8 @@
                                                             class="text-danger">*</span></label>
                                                 </div>
                                                 <div class="form-control-group">
-                                                    <input type="text" name="address" value=" {{Auth::user()->name}}"
-                                                        class="form-control
+                                                    <input type="text" name="address"
+                                                        value=" {{Auth::guard('bank_user')->user()->name}}" class="form-control
                                                         form-control-lg">
                                                 </div>
                                             </div>
@@ -205,7 +206,7 @@
                                 </ul>
                                 <!-- .nk-kycfm-control-list -->
                                 <h6 class="title">Features and Benefits of
-                                    {{Auth::user()->name}} Visual Card:
+                                    {{Auth::guard('bank_user')->user()->name}} Visual Card:
                                 </h6>
                                 <ul class="list list-sm list-checked">
                                     <li>It’s Virtual: You don’t need to carry it around to use it for online

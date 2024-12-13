@@ -1,4 +1,4 @@
-@include('dashboard.header')
+@include('bank_user.header')
 <!--**********************************
             Content body start
         ***********************************-->
@@ -27,7 +27,9 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Balance: {{Auth::user()->currency}}{{number_format($balance, 2, '.',
+                        <h4 class="card-title">Balance: {{Auth::guard('bank_user')->user()->currency
+                            }}{{number_format($balance,
+                            2, '.',
                             ',')}}</h4>
                     </div>
                     <div class="card-body">
@@ -36,7 +38,7 @@
                                 <p>You're about to transfer from your account's available balance. This action cannot be
                                     reversed. Be sure to enter correct details.</p>
                                 <div id="response_code"></div>
-                                <form action="{{route('bank_user.bank.transfer')}}" method="POST">
+                                <form action="{{route('bank_user.local.transfer')}}" method="POST">
                                     @csrf
                                     <p id="server"></p>
                                     <div id="content-one">
@@ -110,4 +112,4 @@
 <!--**********************************
             Content body end
         ***********************************-->
-@include('dashboard.footer')
+@include('bank_user.footer')

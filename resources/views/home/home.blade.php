@@ -114,6 +114,18 @@
                     <h2><span>Categories</span></h2>
                 </div>
                 <div class="row justify-content-center">
+                    <!-- Banking Card -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="single-product-wrap h-100 d-flex flex-column">
+                            <div class="product-image">
+                                <a href="{{route('banking.page')}}"><img src="images/categories/banking.jpg"
+                                        alt="Online Banking" class="img-fluid"></a>
+                            </div>
+                            <div class="product_desc mt-auto">
+                                <h4><a class="product_name" href="{{route('banking.page')}}">Banking</a></h4>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Forex Trading Card -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="single-product-wrap h-100 d-flex flex-column">
@@ -181,18 +193,7 @@
                         </div>
                     </div>
 
-                    <!-- Banking Card -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="single-product-wrap h-100 d-flex flex-column">
-                            <div class="product-image">
-                                <a href="{{route('banking.page')}}"><img src="images/categories/banking.jpg"
-                                        alt="Online Banking" class="img-fluid"></a>
-                            </div>
-                            <div class="product_desc mt-auto">
-                                <h4><a class="product_name" href="{{route('banking.page')}}">Banking</a></h4>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <!-- Li's Section Area End Here -->
