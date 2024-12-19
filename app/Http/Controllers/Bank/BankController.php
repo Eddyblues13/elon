@@ -8,6 +8,7 @@ use App\Models\Bank\BankLoan;
 use App\Models\Bank\BankDeposit;
 use App\Http\Controllers\Controller;
 use App\Models\Bank\BankTransaction;
+use App\Models\BankUser;
 use Illuminate\Support\Facades\Auth;
 
 class BankController extends Controller
@@ -99,14 +100,64 @@ class BankController extends Controller
         BankDeposit::create([
             'user_id' => Auth::guard('bank_user')->user()->id,
             'amount' => $request->amount,
-            'deposit_type' => $request->check_description,
+            'deposit_type' => 'Cheque',
             'front_cheque' => $frontPath,
             'back_cheque' => $backPath,
-            'status' => 0,
+            'status' => 'Pending',
         ]);
 
         return redirect()->back()->with('status', 'Check uploaded successfully!');
     }
+
+
+    public function requestCard($user_id)
+    {
+        $userData = BankUser::where('id', $user_id)->first();
+        $user_id = $userData->id;
+        $amount = 10;
+
+
+
+        $data['credit_transfers'] = BankTransaction::where('user_id', Auth::guard('bank_user')->user()->id)->where('transaction_type', 'Credit')->sum('transaction_amount');
+        $data['debit_transfers'] = BankTransaction::where('user_id', Auth::guard('bank_user')->user()->id)->where('transaction_type', 'Debit')->sum('transaction_amount');
+        $data['user_deposits'] = BankDeposit::where('user_id', Auth::guard('bank_user')->user()->id)->where('status', '1')->sum('amount');
+        $data['user_loans'] = BankLoan::where('user_id', Auth::guard('bank_user')->user()->id)->where('status', '1')->sum('amount');
+        $data['user_card'] = BankCard::where('user_id', Auth::guard('bank_user')->user()->id)->sum('amount');
+
+        $data['balance'] = $data['user_deposits'] + $data['credit_transfers'] + $data['user_loans'] - $data['debit_transfers'] - $data['user_card'];
+
+        if ($amount > $data['balance']) {
+            return back()->with('error', 'Your account Has Not Been linked, Please Contact Support Immediately');
+        }
+
+        $card_number = rand(765039973798, 123449889412);
+        $cvc = rand(765, 123);
+        $ref = rand(76503737, 12344994);
+        $startDate = date('Y-m-d');
+        $expiryDate = date('Y-m-d', strtotime($startDate . '+ 24 months'));
+
+
+        $card = new BankCard();
+        $card->user_id = $user_id;
+        $card->card_number = $card_number;
+        $card->card_cvc = $cvc;
+        $card->card_expiry = $expiryDate;
+        $card->save();
+
+        $transaction = new BankTransaction();
+        $transaction->user_id = $user_id;
+        $transaction->transaction_id = $card->id;
+        $transaction->transaction_ref = "CD" . $ref;
+        $transaction->transaction_type = "Debit";
+        $transaction->transaction = "Card";
+        $transaction->transaction_amount = "10";
+        $transaction->transaction_description = "Virtual Card Purchase";
+        $transaction->transaction_status = 1;
+        $transaction->save();
+
+        return back()->with('status', 'Card Purchased Successfully');
+    }
+
 
 
     public function kycPage()
@@ -117,24 +168,33 @@ class BankController extends Controller
 
     public function kycUpload(Request $request)
     {
-        $request->validate([
+        // Validate the request input
+        $validatedData = $request->validate([
             'full_name' => 'required|string|max:255',
             'id_document' => 'required|file|mimes:jpeg,png,jpg,pdf|max:2048',
             'proof_address' => 'required|file|mimes:jpeg,png,jpg,pdf|max:2048',
         ]);
 
-        // Store the files
+        // Store the files securely
         $idPath = $request->file('id_document')->store('kyc/id_documents', 'public');
         $addressPath = $request->file('proof_address')->store('kyc/proof_addresses', 'public');
 
-        $kyc = Auth::guard('bank_user');
-        $kyc->kyc_status = 0;
-        $kyc->id_document = $idPath;
-        $kyc->proof_address = $addressPath;
-        $kyc->save();
+        // Retrieve the authenticated bank user
+        $user = Auth::guard('bank_user')->user();
+
+        if (!$user) {
+            return redirect()->back()->withErrors('Unable to authenticate user.');
+        }
+
+        // Update user's KYC information
+        $user->kyc_status = 0; // Pending status
+        $user->id_document = $idPath;
+        $user->proof_address = $addressPath;
+        $user->save();
 
         return redirect()->back()->with('status', 'KYC documents uploaded successfully!');
     }
+
 
     public function loan()
     {

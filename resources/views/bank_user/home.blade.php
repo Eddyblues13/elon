@@ -30,7 +30,7 @@
                     </div>
                     <div style="padding: 10px 30px;" class="align-items-center justify-content-center
 									 d-flex bg-warning rounded">
-                        <a href="{{route('bank_user.deposit')}}"><span class="fw-bold text-white">&plus;</span></a>
+                        <a href="{{route('bank_user.check.page')}}"><span class="fw-bold text-white">&plus;</span></a>
                     </div>
                 </div>
 

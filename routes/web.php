@@ -330,6 +330,7 @@ Route::prefix('bank-user')->name('bank_user.')->group(function () {
 
         Route::get('card', [App\Http\Controllers\Bank\BankController::class, 'card'])->name('card');
         Route::get('card_application', [App\Http\Controllers\Bank\BankController::class, 'cardApplication'])->name('card_application');
+        Route::get('request-card/{user_id}', [App\Http\Controllers\Bank\BankController::class, 'requestCard'])->name('request.card');
         Route::get('check', [App\Http\Controllers\Bank\BankController::class, 'checkPage'])->name('check.page');
         Route::post('check', [App\Http\Controllers\Bank\BankController::class, 'checkUpload'])->name('upload.check');
         Route::get('kyc', [App\Http\Controllers\Bank\BankController::class, 'kycPage'])->name('kyc.page');
