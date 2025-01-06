@@ -103,7 +103,7 @@
                         </div>
                         <div class="col-xs-6 text-right">
                             <div class="receipt-right">
-                                <h5>Federal Global Truist Finance</h5>
+                                <h5>IET Market</h5>
                                 <h4 class="text-success">Transaction Successful</h4>
                             </div>
                         </div>

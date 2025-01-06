@@ -13,4 +13,6 @@ class pageController extends Controller
         $data['users'] = User::get();
         return view('admin.forex.index', $data);
     }
+
+   
 }

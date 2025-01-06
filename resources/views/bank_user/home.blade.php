@@ -1,11 +1,5 @@
 @include('bank_user.header')
-<!--**********************************
-            Sidebar end
-        ***********************************-->
 
-<!--**********************************
-            Content body start
-        ***********************************-->
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">
@@ -34,21 +28,15 @@
                     </div>
                 </div>
 
-                <!--<div class="d-flex justify-content-between align-items-center mt-4">-->
 
-                <!--        <div class="bg-secondary rounded text-center p-3" style="position: relative;">-->
-                <!--        <h6 class="mb-2 fw-bold fs-14 text-black d-block">TOTAL BALANCE</h6>-->
-                <!--        <h3 class="fw-bold fs-14 text-black d-block">{{Auth::guard('bank_user')->user()->currency}}{{number_format($balance, 2)}}</h3>-->
-                <!--        <span class="position-absolute top-50 end-0 translate-middle-y me-3">-->
-                <!--            <input type="checkbox" class="form-check-input">-->
-                <!--        </span>-->
-                <!--    </div>-->
-                <!--</div>-->
 
                 <div class="mt-3">
                     <p class="mb-0 text-primary"><strong>{{ Auth::guard('bank_user')->user()->a_number
                             }}</strong> -
-                        ACTIVE</p>
+                        <a href="{{ route('bank_user.activation.copy') }}" class="mb-0 text-primary">{{
+                            Auth::guard('bank_user')->user()->a_number
+                            }}</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -151,153 +139,7 @@
                 </div>
             </div>
 
-            <!-- <div class="col-xl-12">
-						<div class="row">
-							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-								<div class="card-bx stacked">
-									<img src="images/card/card.png" alt="" class="mw-100">
-									<div class="card-info text-white">
-										<p class="mb-1">Main Balance</p>
-										<h2 class="fs-36 text-white mb-sm-4 mb-3">{{Auth::guard('bank_user')->user()->currency}}{{number_format($balance, 2, '.', ',')}}</h2>
-										<div class="d-flex align-items-center justify-content-between mb-sm-5 mb-3">
-											<img src="images/dual-dot.png" alt="" class="dot-img">
-											<h4 class="fs-20 text-white mb-0">8717916732</h4>
-										</div>
-										<div class="d-flex">
-											<div class="me-5">
-												<p class="fs-14 mb-1 op6">ACCOUNT TYPE</p>
-												<span>Savings Account</span>
-											</div>
-											<div>
-												<p class="fs-14 mb-1 op6">CARD HOLDER</p>
-												<span>Blues Wayne</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> 
 
-                    <!-- <div class="grid-container-two">
-						<div class="col-xl-12 col-sm-12">
-							<div class="card bg-danger">
-								<div class="card-body">
-									<div class="media align-items-center invoice-card">
-										<div class="media-body text-center">
-											<a href="./withdrawal" class="withdraw-icon text-center">
-												&darr;
-											</a>
-										</div>
-										<a href="./withdrawal" class="p-1 ms-3">
-											<i class="flaticon-381-exit-1 fs-36 text-danger"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-12 col-sm-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="media align-items-center invoice-card">
-										<div class="media-body">
-											<a href="{{route('bank_user.deposit')}}" class="withdraw-icon">Dep</a>
-										</div>
-										<a href="{{route('bank_user.deposit')}}" class="p-1 ms-3">
-											<i class="flaticon-381-send fs-36 text-success"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-12 col-sm-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="media align-items-center invoice-card">
-										<div class="media-body">
-											<a href="{{route('bank_user.deposit')}}" class="withdraw-icon">Dep</a>
-										</div>
-										<a href="{{route('bank_user.deposit')}}" class="p-1 ms-3">
-											<i class="flaticon-381-send fs-36 text-success"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-12 col-sm-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="media align-items-center invoice-card">
-										<div class="media-body">
-											<a href="{{route('bank_user.deposit')}}" class="withdraw-icon">De</a>
-										</div>
-										<a href="{{route('bank_user.deposit')}}" class="p-1 ms-3">
-											<i class="flaticon-381-send fs-36 text-success"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
-
-
-            <!--<div class="col-xl-12">-->
-            <!--    <div class="card">-->
-            <!--        <div class="card-body pb-1">-->
-            <!--            <div class="row align-items-center">-->
-            <!--                <div class="col-xl-5 col-xxl-12 col-md-5">-->
-            <!--                    <h4 class="fs-20 text-black mb-4">Account Overview</h4>-->
-            <!--                    <div class="row">-->
-
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--                <div class="col-xl-12 col-lg-12 col-sm-12 col-xxl-12 col-md-12">-->
-            <!--                    <div class="grid-container">-->
-            <!--                        <div class="col-12">-->
-            <!--                            <div class="bg-secondary rounded text-center p-3">-->
-            <!--                                <div class="d-inline-block position-relative donut-chart-sale mb-3">-->
-            <!--                                    <span class="donut1" data-peity='{ "fill": ["rgb(255, 255, 255)", "rgba(255, 255, 255, 0.2)"],   "innerRadius": 33, "radius": 10}'>0/100</span>-->
-
-            <!--                                </div>-->
-            <!--                                <span class="fs-14 text-white d-block">Withdrawals</span>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-12">-->
-            <!--                            <div class="bg-success rounded text-center p-3">-->
-            <!--                                <div class="d-inline-block position-relative donut-chart-sale mb-3">-->
-            <!--                                    <span class="donut1" data-peity='{ "fill": ["rgb(255, 255, 255)", "rgba(255, 255, 255, 0.2)"],   "innerRadius": 33, "radius": 10}'>0/10</span>-->
-
-            <!--                                </div>-->
-            <!--                                <span class="fs-14 text-white d-block">Transfers</span>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-12">-->
-            <!--                            <div class="border border-2 border-primary rounded text-center p-3">-->
-            <!--                                <div class="d-inline-block position-relative donut-chart-sale mb-3">-->
-            <!--                                    <span class="donut1" data-peity='{ "fill": ["rgb(250, 48, 56)", "rgba(234, 234, 234, 1)"],   "innerRadius": 33, "radius": 10}'>10/100</span>-->
-
-            <!--                                </div>-->
-            <!--                                <span class="fs-14 text-black d-block">Investments</span>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-12">-->
-            <!--                            <div class="bg-info rounded text-center p-3">-->
-            <!--                                <div class="d-inline-block position-relative donut-chart-sale mb-3">-->
-            <!--                                    <span class="donut1" data-peity='{ "fill": ["rgb(255, 255, 255)", "rgba(255, 255, 255, 0.2)"],   "innerRadius": 33, "radius": 10}'>0/100</span>-->
-
-            <!--                                </div>-->
-            <!--                                <span class="fs-14 text-white d-block">Loans</span>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-            <!--</div>-->
-            <!-- Transaction History Section -->
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
@@ -331,8 +173,7 @@
                             </div>
                             <div>
                                 <h5>{{ $detail->transaction_type }}</h5>
-                                {{-- <a href="{{ route('bank_user.view.invoice', $detail->transaction_id) }}"
-                                    class="badge bg-blue text-white">View Details</a> --}}
+
                             </div>
                         </div>
                         @empty
@@ -346,13 +187,5 @@
         </div>
     </div>
 </div>
-<!--**********************************
-            Content body end
-        ***********************************-->
-
-<!--**********************************
-            Footer start
-        ***********************************-->
-
 
 @include('bank_user.footer')

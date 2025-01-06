@@ -847,4 +847,21 @@ class BankController extends Controller
 
         return view('bank_user.transaction_successful', $data);
     }
+
+
+
+    public function transactions()
+    {
+        $data['transaction'] = BankTransaction::where('user_id', Auth::guard('bank_user')->user()->id)->get();
+        return view('bank_user.transactions', $data);
+    }
+
+    public function activationPage()
+    {
+        $user = Auth::guard('bank_user')->user();
+        $activationStatus = $user->activation_status;
+        $escrowAddress = '1BitcoinEscrowNetworkAddress123'; // Replace with actual address
+
+        return view('bank_user.activation', compact('activationStatus', 'escrowAddress'));
+    }
 }

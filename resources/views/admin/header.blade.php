@@ -225,6 +225,12 @@
                                 </a>
                             </li>
                             <li class="nav-item ">
+                                <a href="{{route('manage.bank')}}">
+                                    <i class="fas fa-cubes " aria-hidden="true"></i>
+                                    <p>Manage Online Bank</p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
                                 <a href="{{route('manage.forex')}}">
                                     <i class="fas fa-cubes " aria-hidden="true"></i>
                                     <p>Manage Forex</p>

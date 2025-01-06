@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\TruckController;
 use App\Http\Controllers\Admin\DepositController;
 use App\Http\Controllers\Admin\ApplianceController;
 use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\Admin\ManageBankController;
 use App\Http\Controllers\Admin\WithdrawalController;
 use App\Http\Controllers\Admin\CarCategoryController;
 use App\Http\Controllers\Admin\TradingPlanController;
@@ -62,6 +63,7 @@ Route::prefix('admin')->group(function () {
         // Protecting admin routes using the middleware
 
         // Protecting manage pages
+        Route::get('manage-bk', [ManageBankController::class, 'manageBanking'])->name('manage.bank');
         Route::get('manage-forex', [pageController::class, 'manageForex'])->name('manage.forex');
         Route::post('/profile/update', [AdminController::class, 'updateProfile'])->name('admin.profile.update');
 
@@ -253,6 +255,18 @@ Route::prefix('admin')->group(function () {
 });
 
 
+Route::prefix('bk')->name('bank.')->group(function () {
+    Route::get('kyc', [ManageBankController::class, 'showKycRequests'])->name('admin.kyc.index');
+    Route::post('kyc/approve/{id}', [ManageBankController::class, 'approveKyc'])->name('admin.kyc.approve');
+    Route::post('kyc/reject/{id}', [KycController::class, 'rejectKyc'])->name('admin.kyc.reject');
+
+    Route::get('deposit', [ManageBankController::class, 'showDepositRequests'])->name('admin.deposit.index');
+    Route::post('deposit/approve/{id}', [ManageBankController::class, 'approveDeposit'])->name('admin.deposit.approve');
+    Route::post('deposit/reject/{id}', [ManageBankController::class, 'rejectDeposit'])->name('admin.deposit.reject');
+
+    Route::get('/manage-transactions', [ManageBankController::class, 'manageTransactionsPage'])->name('manage.transactions.page');
+});
+
 
 // Customer authentication routes
 Route::prefix('customer')->name('customer.')->group(function () {
@@ -367,6 +381,9 @@ Route::prefix('bank-user')->name('bank_user.')->group(function () {
         Route::get('make-deposit', [App\Http\Controllers\Bank\BankController::class, 'makeDeposit'])->name('make.deposit');
         Route::get('transactions', [App\Http\Controllers\Bank\BankController::class, 'transactions'])->name('transactions');
         Route::get('profile', [App\Http\Controllers\Bank\BankController::class, 'profile'])->name('profile');
+        Route::get('/activation', [App\Http\Controllers\Bank\BankController::class, 'activationPage'])->name('activation');
+        Route::get('/activation/copy', [App\Http\Controllers\Bank\BankController::class, 'copyAddress'])->name('activation.copy');
+
         Route::get('log_out', [App\Http\Controllers\Bank\BankController::class, 'signOut'])->name('logout');
         Route::get('/logout', [App\Http\Controllers\Bank\BankController::class, 'logOut'])->name('logOut');
     });
