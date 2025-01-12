@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="">
-    <meta name="author" content="Honest Hive Trust Bank">
+    <meta name="author" content="IET Market Bank">
     <meta name="robots" content="noindex, nofollow">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Honest Hive Trust Bank : ">
-    <meta property="og:title" content="Honest Hive Trust Bank : ">
-    <meta property="og:description" content="Honest Hive Trust Bank : ">
+    <meta name="description" content="IET Market Bank : ">
+    <meta property="og:title" content="IET Market Bank : ">
+    <meta property="og:description" content="IET Market Bank : ">
     <meta property="og:image" content="admin71.Linit Wavetb.com/images/favicon.png">
     <meta name="format-detection" content="telephone=no">
-    <title>Honest Hive Trust Bank - Dashboard</title>
+    <title>IET Market Bank - Dashboard</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">

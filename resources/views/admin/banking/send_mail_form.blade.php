@@ -1,4 +1,4 @@
-@include('admin.header')
+@include('admin.banking.header')
 
 <div class="main-panel">
     <div class="content bg-light">
@@ -42,4 +42,4 @@
     </div>
 </div>
 
-@include('admin.footer')
+@include('admin.banking.footer')

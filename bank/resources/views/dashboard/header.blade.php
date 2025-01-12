@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="">
-    <meta name="author" content="Global Pay Finance">
+    <meta name="author" content="IET Market">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Global Pay Finance">
-    <meta property="og:title" content="Global Pay Finance">
-    <meta property="og:description" content="Global Pay Finance">
+    <meta name="description" content="IET Market">
+    <meta property="og:title" content="IET Market">
+    <meta property="og:description" content="IET Market">
     <meta property="og:image" content="admin71.Linit Wavetb.com/images/favicon.png">
     <meta name="format-detection" content="telephone=no">
-    <title>Global Pay Finance - Dashboard</title>
+    <title>IET Market - Dashboard</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
@@ -67,7 +67,7 @@
         }
     </style>
 
-<script src="//code.jivosite.com/widget/hAZI3AYppX" async></script>
+
 </head>
 
 <body>
@@ -193,12 +193,10 @@
 
                     </li>
 
-                    <li>
-                        <a class="has-arrow ai-icon" href="{{route('crypto')}}" aria-expanded="false">
-                            <i class="fa fa-google-wallet"></i>
-                            <span class="nav-text">Crypto Transfer</span>
+                    <li><a class="has-arrow ai-icon" href="{{route('check.page')}}" aria-expanded="false">
+                            <i class="fa fa-spinner"></i>
+                            <span class="nav-text">Check Deposit</span>
                         </a>
-
                     </li>
                     <li>
                         <a class="has-arrow ai-icon" href="{{route('paypal')}}" aria-expanded="false">

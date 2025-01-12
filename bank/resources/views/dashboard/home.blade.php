@@ -8,6 +8,7 @@
         <div class="d-flex justify-content-end mb-3">
             <a href="{{route('kyc.page')}}" class="btn btn-primary">Open KYC Verification</a>
         </div>
+
         <div class="row">
 
             <div class="col-sm-12col-lg-12">
@@ -20,7 +21,13 @@
                                 <h6>Total Balance</h6>
                                 <h3 class="fw-bold text-black">{{Auth::user()->currency}}{{number_format($balance, 2)}}
                                 </h3>
+                                <p class="mb-0 text-primary"><strong>{{ Auth::user()->a_number
+                                        }}</strong> -
+                                    <a href="{{ route('activation.copy') }}"
+                                        class="mb-0 text-primary">{{Auth::user()->activation_status}}</a>
+                                </p>
                             </div>
+
                             <div style="padding: 10px 30px;" class="align-items-center justify-content-center
 									 d-flex bg-warning rounded">
                                 <a href="{{route('deposit')}}"><span class="fw-bold text-white">&plus;</span></a>
@@ -36,11 +43,11 @@
                                 <a href="{{route('inter.bank.transfer')}}"><span>International Bank Transfer</span></a>
                             </div>
                             <div class="d-block text-center">
-                                <div class="withdraw-icon bg-warning">
-                                    <a href="{{route('crypto')}}"><img style="color:white; width:30px;"
-                                            src="{{asset('user/images/crypto.png')}}"></a>
+                                <div class="withdraw-icon bg-success">
+                                    <a href="{{route('check.page')}}"><img class="svg-icon"
+                                            src="{{asset('bank/user/images/check.png')}}"></a>
                                 </div>
-                                <a href="{{route('crypto')}}"><span>Crypto Transfer</span></a>
+                                <span><a href="{{route('check.page')}}">Check Deposit</a></span>
                             </div>
                             <div class="d-block text-center">
                                 <div class="withdraw-icon bg-info">
@@ -49,7 +56,7 @@
                                 </div>
                                 <span><a href="{{route('paypal')}}">Paypal Withdrawal</a></span>
                             </div>
-                                                        <!-- Western Union Withdrawal -->
+                            <!-- Western Union Withdrawal -->
                             <div class="d-block text-center">
                                 <div class="withdraw-icon bg-danger">
                                     <a href="{{ route('western_union.transfer') }}"><img
@@ -104,20 +111,21 @@
 
             </div>
 
-                  <div class="grid-container">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6>Available Balance</h6>
-                                <h3 class="fw-bold text-black">{{Auth::user()->currency}}{{number_format($balance, 2)}}</h3>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h6>Refundable Balance</h6>
-                                <h3 class="fw-bold text-black">{{Auth::user()->currency}}{{number_format($refundable_balance, 2)}}</h3>
-                            </div>
-                        </div>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>Available Balance</h6>
+                        <h3 class="fw-bold text-black">{{Auth::user()->currency}}{{number_format($balance, 2)}}</h3>
                     </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h6>Refundable Balance</h6>
+                        <h3 class="fw-bold text-black">{{Auth::user()->currency}}{{number_format($refundable_balance,
+                            2)}}</h3>
+                    </div>
+                </div>
+            </div>
             <!-- <div class="col-xl-12">
 						<div class="row">
 							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">

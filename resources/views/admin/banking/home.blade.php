@@ -6,7 +6,7 @@
             <div class="alert alert-success mb-2">{{session('message')}}</div>
             @endif
             <div class="mt-2 mb-4">
-                <h1 class="title1 text-dark">Honest Hive Trust Bank users lists</h1>
+                <h1 class="title1 text-dark">IET Market Bank users lists</h1>
             </div>
 
             <div>
@@ -21,56 +21,7 @@
 
                     <a href="" data-toggle="modal" data-target="#adduser" class="float-right btn btn-primary"> <i
                             class='fas fa-plus-circle'></i> Open an Account</a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="adduser" tabindex="-1" aria-h6ledby="exampleModalh6" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header bg-light">
-                                    <h3 class="mb-2 d-inline text-dark">Manually Add Users</h3>
-                                    <button type="button" class="close text-dark" data-dismiss="modal" aria-h6="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body bg-light">
-                                    <div>
-                                        {{-- <form role="form" method="post" action="{{ route('add.user') }}">
-                                            {{ csrf_field()}} --}}
-                                            <div class="form-row">
-                                                <div class="form-group col-md-12">
-                                                    <h6 class="text-dark">First Name</h6>
-                                                    <input type="text" id="input1"
-                                                        class="form-control bg-light text-dark" name="first_name"
-                                                        required>
-                                                </div>
-                                                <div class="form-group col-md-12">
-                                                    <h6 class="text-dark">Last Name</h6>
-                                                    <input type="text" class="form-control bg-light text-dark"
-                                                        name="last_name" required>
-                                                </div>
-                                                <div class="form-group col-md-12">
-                                                    <h6 class="text-dark">Email</h6>
-                                                    <input type="email" class="form-control bg-light text-dark"
-                                                        name="email" required>
-                                                </div>
-                                                <div class="form-group col-md-12">
-                                                    <h6 class="text-dark">Password</h6>
-                                                    <input type="password" class="form-control bg-light text-dark"
-                                                        name="password" required>
-                                                </div>
-                                                <div class="form-group col-md-12">
-                                                    <h6 class="text-dark">Confirm Password</h6>
-                                                    <input type="password" class="form-control bg-light text-dark"
-                                                        name="password_confirmation" required>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="px-4 btn btn-primary">Add User</button>
-                                        </form>
-                                    </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="mb-5 row">
@@ -118,8 +69,7 @@
                             <thead>
                                 <tr>
                                     <th>Client Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
+                                    <th>Account Number</th>
                                     <th>Status</th>
                                     <th>Date registered</th>
                                     <th>Action</th>
@@ -131,9 +81,9 @@
                                     <td>
                                         {{ $user->first_name }} {{ $user->last_name }}
                                     </td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->phone_number }}</td>
-                                    @if($user->status == 1)
+
+                                    <td>{{ $user->a_number }}</td>
+                                    @if($user->is_activated == 0)
                                     <td><span class="badge badge-danger">inactive</span></td>
 
                                     @else
@@ -143,8 +93,8 @@
                                     <td>{{ $user->created_at->format('d M Y h:i A') }}</td>
                                     <td>
                                         <a class="btn btn-secondary btn-sm"
-                                            href="{{ route('admin.user.view', $user->id) }}" id="{{ $user->id }}"
-                                            role="button">
+                                            href="{{ route('bank.admin.view.bank.user', $user->id) }}"
+                                            id="{{ $user->id }}" role="button">
                                             Manage
                                         </a>
                                     </td>

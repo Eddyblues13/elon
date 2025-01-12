@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-
+ 
 
                 <div class="mt-3">
                     <p class="mb-0 text-primary"><strong>{{ Auth::guard('bank_user')->user()->a_number
@@ -92,7 +92,7 @@
                                             src="{{asset('bank/user/images/check.png')}}"></a>
                                 </div>
                                 <span><a href="{{route('bank_user.check.page')}}">Check Deposit</a></span>
-                            </div>
+                            </div> 
                             <div class="d-block text-center">
                                 <div class="withdraw-icon bg-danger">
                                     <a href="{{route('bank_user.local.bank.transfer')}}">&darr;</a>

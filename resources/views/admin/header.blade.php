@@ -225,7 +225,7 @@
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a href="{{route('manage.bank')}}">
+                                <a href="{{route('bank.manage.bank')}}">
                                     <i class="fas fa-cubes " aria-hidden="true"></i>
                                     <p>Manage Online Bank</p>
                                 </a>

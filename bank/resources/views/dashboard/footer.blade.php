@@ -1,8 +1,29 @@
+<!-- Bottom Navigation Bar -->
+<nav class="navbar fixed-bottom navbar-light bg-light border-top">
+    <div class="container-fluid d-flex justify-content-around">
+        <a href="{{route('dashboard')}}" class="navbar-brand text-center text-primary">
+            <i class="bi bi-person-badge fs-4 text-primary"></i>
+            <span class="d-block">Dashboard</span>
+        </a>
+        <a href="{{route('inter.bank.transfer')}}" class="navbar-brand text-center text-primary ">
+            <i class="bi bi-bank fs-4"></i>
+            <span class="d-block">Transfer</span>
+        </a>
+        <a href="{{route('card')}}" class="navbar-brand text-center text-primary">
+            <i class="bi bi-credit-card fs-4"></i>
+            <span class="d-block">Virtual Card</span>
+        </a>
+        <a href="{{route('logOut')}}" class="navbar-brand text-center text-primary">
+            <i class="bi bi-clock-history fs-4 text-primary"></i>
+            <span class="d-block">Logout</span>
+        </a>
+    </div>
+</nav>
 <!--**********************************
             Footer start
         ***********************************-->
 <div class="footer">
- 
+
 </div>
 <!--**********************************
             Footer end
@@ -88,7 +109,7 @@
         })(jQuery);
 </script>
 
-  
+
 </body>
 
 </html>

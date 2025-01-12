@@ -2,19 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class BankUser extends Model implements AuthenticatableContract
+class BankUser extends Model
 {
-    use Authenticatable;
+    protected $connection = 'bank'; // BANK database
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    protected $table = 'users';
+
+
     protected $fillable = [
         'first_name',
         'last_name',
@@ -60,4 +56,10 @@ class BankUser extends Model implements AuthenticatableContract
         'is_activated' => 'boolean',
         'user_status' => 'boolean',
     ];
+
+
+    public function deposits()
+    {
+        return $this->hasMany(BankDeposit::class, 'user_id');
+    }
 }

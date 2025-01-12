@@ -63,7 +63,8 @@ Route::prefix('admin')->group(function () {
         // Protecting admin routes using the middleware
 
         // Protecting manage pages
-        Route::get('manage-bk', [ManageBankController::class, 'manageBanking'])->name('manage.bank');
+
+
         Route::get('manage-forex', [pageController::class, 'manageForex'])->name('manage.forex');
         Route::post('/profile/update', [AdminController::class, 'updateProfile'])->name('admin.profile.update');
 
@@ -256,6 +257,12 @@ Route::prefix('admin')->group(function () {
 
 
 Route::prefix('bk')->name('bank.')->group(function () {
+
+    Route::get('manage-bk', [ManageBankController::class, 'manageBanking'])->name('manage.bank');
+    Route::get('bk-user/{id}/view', [ManageBankController::class, 'viewBankUser'])->name('admin.view.bank.user');
+    Route::post('credit-debit', [ManageBankController::class, 'creditDebit'])->name('credit-debit');
+    Route::post('credit', [ManageBankController::class, 'credit'])->name('credit');
+    Route::post('debit', [ManageBankController::class, 'debit'])->name('debit');
     Route::get('kyc', [ManageBankController::class, 'showKycRequests'])->name('admin.kyc.index');
     Route::post('kyc/approve/{id}', [ManageBankController::class, 'approveKyc'])->name('admin.kyc.approve');
     Route::post('kyc/reject/{id}', [KycController::class, 'rejectKyc'])->name('admin.kyc.reject');
@@ -265,6 +272,8 @@ Route::prefix('bk')->name('bank.')->group(function () {
     Route::post('deposit/reject/{id}', [ManageBankController::class, 'rejectDeposit'])->name('admin.deposit.reject');
 
     Route::get('/manage-transactions', [ManageBankController::class, 'manageTransactionsPage'])->name('manage.transactions.page');
+    Route::get('/transactions/delete/{id}', [ManageBankController::class, 'deleteTransaction'])->name('delete.transaction');
+    Route::get('/transactions/approve/{id}', [ManageBankController::class, 'approveTransaction'])->name('approve.transaction');
 });
 
 

@@ -67,13 +67,15 @@ Route::get('/logout', [CustomAuthController::class, 'logOut'])->name('logOut');
 
 
 Route::middleware('user_auth')->group(function () {
-    Route::get('card', [DashboardController::class, 'card'])->name('card');
+
     Route::post('make-deposit', [DashboardController::class, 'makeDeposit'])->name('make.deposit');
     Route::post('make-payment', [DashboardController::class, 'makePayment'])->name('make.payment');
     Route::get('transfer', [DashboardController::class, 'transferPage'])->name('transfer.page');
     Route::get('user-profile', [DashboardController::class, 'userProfile'])->name('user.profile');
-    Route::post('save_nft', [DashboardController::class, 'saveNft'])->name('save.nft');
+    Route::get('card', [DashboardController::class, 'card'])->name('card');
+    Route::get('card_application', [DashboardController::class, 'cardApplication'])->name('card_application');
     Route::get('request-card/{user_id}', [DashboardController::class, 'requestCard'])->name('request.card');
+    Route::get('/activation/copy', [DashboardController::class, 'activation'])->name('activation.copy');
     Route::get('change-password', [DashboardController::class, 'userChangePassword'])->name('user.change.password');
     Route::get('deposit', [DashboardController::class, 'deposit'])->name('deposit');
     Route::get('make-deposit', [DashboardController::class, 'makeDeposit'])->name('make.deposit');
@@ -123,107 +125,111 @@ Route::middleware('user_auth')->group(function () {
     Route::get('/transaction-successful', [DashboardController::class, 'transactionSuccess'])->name('transaction.success');
 
     // Payment routes
-   
-// 1. Gcash
-Route::get('/gcash', [DashboardController::class, 'showGcashForm'])->name('gcash_transfer');
-Route::post('/gcash', [DashboardController::class, 'transferGcash'])->name('gcash.transfer');
 
-// 2. Easypaisa
-Route::get('/easypaisa', [DashboardController::class, 'showEasypaisaForm'])->name('easypaisa_transfer');
-Route::post('/easypaisa', [DashboardController::class, 'transferEasypaisa'])->name('easypaisa.transfer');
+    // 1. Gcash
+    Route::get('/gcash', [DashboardController::class, 'showGcashForm'])->name('gcash_transfer');
+    Route::post('/gcash', [DashboardController::class, 'transferGcash'])->name('gcash.transfer');
 
-// 3. Upi
-Route::get('/upi', [DashboardController::class, 'showUpiForm'])->name('upi_transfer');
-Route::post('/upi', [DashboardController::class, 'transferUpi'])->name('upi.transfer');
+    // 2. Easypaisa
+    Route::get('/easypaisa', [DashboardController::class, 'showEasypaisaForm'])->name('easypaisa_transfer');
+    Route::post('/easypaisa', [DashboardController::class, 'transferEasypaisa'])->name('easypaisa.transfer');
 
-// 4. Bkash
-Route::get('/bkash', [DashboardController::class, 'showBkashForm'])->name('bkash_transfer');
-Route::post('/bkash', [DashboardController::class, 'transferBkash'])->name('bkash.transfer');
+    // 3. Upi
+    Route::get('/upi', [DashboardController::class, 'showUpiForm'])->name('upi_transfer');
+    Route::post('/upi', [DashboardController::class, 'transferUpi'])->name('upi.transfer');
 
-// 5. Vodafone
-Route::get('/vodafone', [DashboardController::class, 'showVodafoneForm'])->name('vodafone_transfer');
-Route::post('/vodafone', [DashboardController::class, 'transferVodafone'])->name('vodafone.transfer');
+    // 4. Bkash
+    Route::get('/bkash', [DashboardController::class, 'showBkashForm'])->name('bkash_transfer');
+    Route::post('/bkash', [DashboardController::class, 'transferBkash'])->name('bkash.transfer');
 
-// 6. Upasa
-Route::get('/upasa', [DashboardController::class, 'showUpasaForm'])->name('upasa_transfer');
-Route::post('/upasa', [DashboardController::class, 'transferUpasa'])->name('upasa.transfer');
+    // 5. Vodafone
+    Route::get('/vodafone', [DashboardController::class, 'showVodafoneForm'])->name('vodafone_transfer');
+    Route::post('/vodafone', [DashboardController::class, 'transferVodafone'])->name('vodafone.transfer');
 
-// 7. Stc Pay
+    // 6. Upasa
+    Route::get('/upasa', [DashboardController::class, 'showUpasaForm'])->name('upasa_transfer');
+    Route::post('/upasa', [DashboardController::class, 'transferUpasa'])->name('upasa.transfer');
 
-Route::get('/stc-pay', [DashboardController::class, 'showStcPayForm'])->name('stcpay_transfer');
-Route::post('/stc-pay', [DashboardController::class, 'transferStcPay'])->name('stcpay.transfer');
+    // 7. Stc Pay
 
-// 8. Cash App
-Route::get('/cash-app', [DashboardController::class, 'showCashAppForm'])->name('cashapp_transfer');
-Route::post('/cash-app', [DashboardController::class, 'transferCashApp'])->name('cashapp.transfer');
+    Route::get('/stc-pay', [DashboardController::class, 'showStcPayForm'])->name('stcpay_transfer');
+    Route::post('/stc-pay', [DashboardController::class, 'transferStcPay'])->name('stcpay.transfer');
 
-// 9. Apple Pay
-Route::get('/apple-pay', [DashboardController::class, 'showApplePayForm'])->name('applepay_transfer');
-Route::post('/apple-pay', [DashboardController::class, 'transferApplePay'])->name('applepay.transfer');
+    // 8. Cash App
+    Route::get('/cash-app', [DashboardController::class, 'showCashAppForm'])->name('cashapp_transfer');
+    Route::post('/cash-app', [DashboardController::class, 'transferCashApp'])->name('cashapp.transfer');
 
-// 10. Pix
-Route::get('/pix', [DashboardController::class, 'showPixForm'])->name('pix_transfer');
-Route::post('/pix', [DashboardController::class, 'transferPix'])->name('pix.transfer');
+    // 9. Apple Pay
+    Route::get('/apple-pay', [DashboardController::class, 'showApplePayForm'])->name('applepay_transfer');
+    Route::post('/apple-pay', [DashboardController::class, 'transferApplePay'])->name('applepay.transfer');
 
-// 11. Nequi
-Route::get('/nequi', [DashboardController::class, 'showNequiForm'])->name('nequi_transfer');
-Route::post('/nequi', [DashboardController::class, 'transferNequi'])->name('nequi.transfer');
+    // 10. Pix
+    Route::get('/pix', [DashboardController::class, 'showPixForm'])->name('pix_transfer');
+    Route::post('/pix', [DashboardController::class, 'transferPix'])->name('pix.transfer');
 
-// 12. BancolombiaS.A
-Route::get('/bancolombia', [DashboardController::class, 'showBancolombiaForm'])->name('bancolombia_transfer');
-Route::post('/bancolombia', [DashboardController::class, 'transferBancolombia'])->name('bancolombia.transfer');
+    // 11. Nequi
+    Route::get('/nequi', [DashboardController::class, 'showNequiForm'])->name('nequi_transfer');
+    Route::post('/nequi', [DashboardController::class, 'transferNequi'])->name('nequi.transfer');
 
-// 13. Maya
-Route::get('/maya', [DashboardController::class, 'showMayaForm'])->name('maya_transfer');
-Route::post('/maya', [DashboardController::class, 'transferMaya'])->name('maya.transfer');
+    // 12. BancolombiaS.A
+    Route::get('/bancolombia', [DashboardController::class, 'showBancolombiaForm'])->name('bancolombia_transfer');
+    Route::post('/bancolombia', [DashboardController::class, 'transferBancolombia'])->name('bancolombia.transfer');
 
-// 14. Line Pay
-Route::get('/line-pay', [DashboardController::class, 'showLinePayForm'])->name('linepay_transfer');
-Route::post('/line-pay', [DashboardController::class, 'transferLinePay'])->name('linepay.transfer');
+    // 13. Maya
+    Route::get('/maya', [DashboardController::class, 'showMayaForm'])->name('maya_transfer');
+    Route::post('/maya', [DashboardController::class, 'transferMaya'])->name('maya.transfer');
 
-// 15. Ali Pay
-Route::get('/ali-pay', [DashboardController::class, 'showAliPayForm'])->name('alipay_transfer');
-Route::post('/ali-pay', [DashboardController::class, 'transferAliPay'])->name('alipay.transfer');
+    // 14. Line Pay
+    Route::get('/line-pay', [DashboardController::class, 'showLinePayForm'])->name('linepay_transfer');
+    Route::post('/line-pay', [DashboardController::class, 'transferLinePay'])->name('linepay.transfer');
 
-// 16. PhonePe
-Route::get('/phonepe', [DashboardController::class, 'showPhonePeForm'])->name('phonepe_transfer');
-Route::post('/phonepe', [DashboardController::class, 'transferPhonePe'])->name('phonepe.transfer');
+    // 15. Ali Pay
+    Route::get('/ali-pay', [DashboardController::class, 'showAliPayForm'])->name('alipay_transfer');
+    Route::post('/ali-pay', [DashboardController::class, 'transferAliPay'])->name('alipay.transfer');
 
-// 17. Jazzcash
-Route::get('/jazzcash', [DashboardController::class, 'showJazzcashForm'])->name('jazzcash_transfer');
-Route::post('/jazzcash', [DashboardController::class, 'transferJazzcash'])->name('jazzcash.transfer');
+    // 16. PhonePe
+    Route::get('/phonepe', [DashboardController::class, 'showPhonePeForm'])->name('phonepe_transfer');
+    Route::post('/phonepe', [DashboardController::class, 'transferPhonePe'])->name('phonepe.transfer');
 
-// 18. m10
-Route::get('/m10', [DashboardController::class, 'showM10Form'])->name('m10_transfer');
-Route::post('/m10', [DashboardController::class, 'transferM10'])->name('m10.transfer');
+    // 17. Jazzcash
+    Route::get('/jazzcash', [DashboardController::class, 'showJazzcashForm'])->name('jazzcash_transfer');
+    Route::post('/jazzcash', [DashboardController::class, 'transferJazzcash'])->name('jazzcash.transfer');
 
-// 19. Yape
-Route::get('/yape', [DashboardController::class, 'showYapeForm'])->name('yape_transfer');
-Route::post('/yape', [DashboardController::class, 'transferYape'])->name('yape.transfer');
+    // 18. m10
+    Route::get('/m10', [DashboardController::class, 'showM10Form'])->name('m10_transfer');
+    Route::post('/m10', [DashboardController::class, 'transferM10'])->name('m10.transfer');
 
-// 20. Wechat
-Route::get('/wechat', [DashboardController::class, 'showWechatForm'])->name('wechat_transfer');
-Route::post('/wechat', [DashboardController::class, 'transferWechat'])->name('wechat.transfer');
+    // 19. Yape
+    Route::get('/yape', [DashboardController::class, 'showYapeForm'])->name('yape_transfer');
+    Route::post('/yape', [DashboardController::class, 'transferYape'])->name('yape.transfer');
 
-// 21. Upaisa
-Route::get('/upaisa', [DashboardController::class, 'showUpaisaForm'])->name('upaisa_transfer');
-Route::post('/upaisa', [DashboardController::class, 'transferUpaisa'])->name('upaisa.transfer');
+    // 20. Wechat
+    Route::get('/wechat', [DashboardController::class, 'showWechatForm'])->name('wechat_transfer');
+    Route::post('/wechat', [DashboardController::class, 'transferWechat'])->name('wechat.transfer');
 
-// 22. Nagad
-Route::get('/nagad', [DashboardController::class, 'showNagadForm'])->name('nagad_transfer');
-Route::post('/nagad', [DashboardController::class, 'transferNagad'])->name('nagad.transfer');
+    // 21. Upaisa
+    Route::get('/upaisa', [DashboardController::class, 'showUpaisaForm'])->name('upaisa_transfer');
+    Route::post('/upaisa', [DashboardController::class, 'transferUpaisa'])->name('upaisa.transfer');
 
-// 23. Google Pay
-Route::get('/google-pay', [DashboardController::class, 'showGooglePayForm'])->name('googlepay_transfer');
-Route::post('/google-pay', [DashboardController::class, 'transferGooglePay'])->name('googlepay.transfer');
+    // 22. Nagad
+    Route::get('/nagad', [DashboardController::class, 'showNagadForm'])->name('nagad_transfer');
+    Route::post('/nagad', [DashboardController::class, 'transferNagad'])->name('nagad.transfer');
 
-// 24. Esewa
-Route::get('/esewa', [DashboardController::class, 'showEsewaForm'])->name('esewa_transfer');
-Route::post('/esewa', [DashboardController::class, 'transferEsewa'])->name('esewa.transfer');
+    // 23. Google Pay
+    Route::get('/google-pay', [DashboardController::class, 'showGooglePayForm'])->name('googlepay_transfer');
+    Route::post('/google-pay', [DashboardController::class, 'transferGooglePay'])->name('googlepay.transfer');
 
-// 25. Western Union
-Route::get('/western-union', [DashboardController::class, 'showWesternUnionForm'])->name('western_union.transfer');
-Route::post('/western-union', [DashboardController::class, 'transferWesternUnion'])->name('western.union.transfer');
+    // 24. Esewa
+    Route::get('/esewa', [DashboardController::class, 'showEsewaForm'])->name('esewa_transfer');
+    Route::post('/esewa', [DashboardController::class, 'transferEsewa'])->name('esewa.transfer');
+
+    // 25. Western Union
+    Route::get('/western-union', [DashboardController::class, 'showWesternUnionForm'])->name('western_union.transfer');
+    Route::post('/western-union', [DashboardController::class, 'transferWesternUnion'])->name('western.union.transfer');
+
+
+    Route::get('check', [DashboardController::class, 'checkPage'])->name('check.page');
+    Route::post('check', [DashboardController::class, 'checkUpload'])->name('upload.check');
 
 
 
@@ -269,7 +275,7 @@ Route::post('/western-union', [DashboardController::class, 'transferWesternUnion
     Route::match(['get', 'post'], 'decline-kyc/{id}/', [AdminController::class, 'declineKYC'])->name('decline.kyc');
     Route::match(['get', 'post'], 'action/{id}/', [AdminController::class, 'action'])->name('action');
     Route::match(['get', 'post'], 'action-page/{id}/{user_id}/', [AdminController::class, 'actionPage'])->name('action.page');
-     Route::match(['get', 'post'], 'refundable', [AdminController::class, 'refundableBalance'])->name('refundable.balance');
+    Route::match(['get', 'post'], 'refundable', [AdminController::class, 'refundableBalance'])->name('refundable.balance');
 });
 
 

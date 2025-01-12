@@ -1,9 +1,20 @@
-@include('admin.header')
+@include('admin.banking.header')
 <div class="main-panel">
     <div class="content bg-light">
         <div class="page-inner">
+            <!-- Display success or error messages -->
             @if(session('message'))
-            <div class="alert alert-success mb-2">{{session('message')}}</div>
+            <div class="alert alert-success">{{ session('message') }}</div>
+            @endif
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
             <div>
             </div>
@@ -19,8 +30,8 @@
                                     <span></span>
                                     <div class="d-inline">
                                         <div class="float-right btn-group">
-                                            <a class="btn btn-primary btn-sm" href="{{route('manage.users.page')}}"> <i
-                                                    class="fa fa-arrow-left"></i> back</a> &nbsp;
+                                            <a class="btn btn-primary btn-sm" href=""> <i class="fa fa-arrow-left"></i>
+                                                back</a> &nbsp;
                                             <button type="button" class="btn btn-secondary dropdown-toggle btn-sm"
                                                 data-toggle="dropdown" data-display="static" aria-haspopup="true"
                                                 aria-expanded="false">
@@ -47,7 +58,8 @@
                                                 <a href="#" data-toggle="modal" data-target="#edituser"
                                                     class="dropdown-item">Edit</a>
                                                 <a href="#" data-toggle="modal" data-target="#sendmailtooneuserModal"
-                                                    class="dropdown-item">Send Email</a>
+                                                    class="dropdown-item">Send
+                                                    Email</a>
                                                 <a href="#" data-toggle="modal" data-target="#switchuserModal"
                                                     class="dropdown-item text-success">Gain Access</a>
                                                 <a href="#" data-toggle="modal" data-target="#deleteModal"
@@ -143,7 +155,8 @@
                                     <h5>Registered</h5>
                                 </div>
                                 <div class="col-md-8">
-                                    <h5>{{ \Carbon\Carbon::parse($user->created_at)->format('D, M j, Y g:i A') }}</h5>
+                                    <h5>{{ \Carbon\Carbon::parse($user->created_at)->format('D, M j, Y g:i A') }}
+                                    </h5>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +178,7 @@
                 <div class="modal-body bg-light">
                     <p class="text-dark">Set {{$user->first_name}}
                         {{$user->last_name}} VAT Code</p>
-                    <form style="padding:3px;" role="form" method="post" action="{{ route('vat-code')}}">
+                    <form style="padding:3px;" role="form" method="post" action="">
                         @csrf
 
 
@@ -195,7 +208,7 @@
                     <button type="button" class="close text-dark" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body bg-light">
-                    <form action="{{ route('credit') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('bank.credit')}}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <!-- User ID: Automatically filled, hidden -->
@@ -220,7 +233,8 @@
                             <label class="text-dark">Amount</label>
                             <input class="form-control bg-light text-dark" placeholder="Enter amount to credit"
                                 type="number" name="amount" required>
-                            <small class="text-muted">Enter the amount you want to credit to the user's account.</small>
+                            <small class="text-muted">Enter the amount you want to credit to the user's
+                                account.</small>
                         </div>
 
                         <!-- Transfer Scope Dropdown -->
@@ -241,7 +255,8 @@
                             <label class="text-dark">Description</label>
                             <textarea class="form-control bg-light text-dark" name="description"
                                 placeholder="Enter a description for this transaction" rows="3"></textarea>
-                            <small class="text-muted">Provide additional information about the credit transaction (e.g.,
+                            <small class="text-muted">Provide additional information about the credit transaction
+                                (e.g.,
                                 reason for the credit, notes, etc.).</small>
                         </div>
 
@@ -281,7 +296,7 @@
                     <button type="button" class="close text-dark" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body bg-light">
-                    <form action="{{ route('debit') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('bank.debit')}}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <!-- User ID: Automatically filled, hidden -->
@@ -306,7 +321,8 @@
                             <label class="text-dark">Amount</label>
                             <input class="form-control bg-light text-dark" placeholder="Enter amount to credit"
                                 type="number" name="amount" required>
-                            <small class="text-muted">Enter the amount you want to debit to the user's account.</small>
+                            <small class="text-muted">Enter the amount you want to debit to the user's
+                                account.</small>
                         </div>
 
                         <!-- Transfer Scope Dropdown -->
@@ -327,7 +343,8 @@
                             <label class="text-dark">Description</label>
                             <textarea class="form-control bg-light text-dark" name="description"
                                 placeholder="Enter a description for this transaction" rows="3"></textarea>
-                            <small class="text-muted">Provide additional information about the credit transaction (e.g.,
+                            <small class="text-muted">Provide additional information about the credit transaction
+                                (e.g.,
                                 reason for the credit, notes, etc.).</small>
                         </div>
 
@@ -367,7 +384,7 @@
                     <button type="button" class="close text-dark" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body bg-light">
-                    <a class="btn btn-success" href="{{ route('user.verification', $user->id) }}">Verify</a>
+                    <a class="btn btn-success" href="">Verify</a>
                 </div>
             </div>
         </div>
@@ -385,7 +402,7 @@
                     <button type="button" class="close text-dark" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body bg-light">
-                    <a class="btn btn-success" href="{{ route('user.suspension', $user->id) }}">Account
+                    <a class="btn btn-success" href="">Account
                         Suspension</a>
                 </div>
             </div>
@@ -470,7 +487,7 @@
                 </div>
                 <div class="modal-body bg-light">
                     <p class="text-dark">This message will be sent to {{$user->name}}</p>
-                    <form style="padding:3px;" role="form" method="post" action="{{ route('admin.send.mail')}}">
+                    <form style="padding:3px;" role="form" method="post" action="">
 
                         @csrf
                         <input type="hidden" name="email" value="{{$user->email}}">
@@ -622,7 +639,7 @@
                 <div class="modal-body bg-light">
                     <p class="text-dark">Are you sure you want to reset password for {{$user->first_name}} to <span
                             class="text-primary font-weight-bolder">user01236</span></p>
-                    <a class="btn btn-primary" href="{{ route('reset.password', $user->id) }}">Reset Now</a>
+                    <a class="btn btn-primary" href="">Reset Now</a>
                 </div>
             </div>
         </div>
@@ -639,7 +656,7 @@
                     <button type="button" class="close text-dark" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body bg-light">
-                    <a class="btn btn-success" href="{{ route('users.impersonate', $user->id) }}">Proceed</a>
+                    <a class="btn btn-success" href="">Proceed</a>
                 </div>
             </div>
         </div>
@@ -657,7 +674,7 @@
                 </div>
                 <div class="modal-body bg-light">
                     <p class="text-dark">You are clearing account for {{$user->first_name}} to $0.00</p>
-                    <a class="btn btn-primary" href="{{route('clear.account',$user->id)}}">Proceed</a>
+                    <a class="btn btn-primary" href="">Proceed</a>
                 </div>
             </div>
         </div>
@@ -678,11 +695,11 @@
                     <p class="text-dark">Are you sure you want to delete {{$user->first_name}} Account? Everything
                         associated
                         with this account will be loss.</p>
-                    <a class="btn btn-danger" href="{{ route('delete.user', $user->id) }}">Yes i'm sure</a>
+                    <a class="btn btn-danger" href="">Yes i'm sure</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- /Delete user Modal -->
 
-    @include('admin.footer')
+    @include('admin.banking.footer')

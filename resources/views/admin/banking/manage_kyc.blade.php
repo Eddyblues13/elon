@@ -1,4 +1,4 @@
-@include('admin.header')
+@include('admin.banking.header')
 
 <div class="main-panel bg-light">
 	<div class="content bg-light">
@@ -7,7 +7,7 @@
 			<div class="alert alert-success mb-2">{{ session('message') }}</div>
 			@endif
 			<div class="mt-2 mb-4">
-				<h1 class="title1 text-dark">Honest Hive Trust Bank Account Verification List</h1>
+				<h1 class="title1 text-dark">IET Market Bank Account Verification List</h1>
 			</div>
 
 			<div class="mb-5 row">
@@ -111,4 +111,4 @@
 	</div>
 </div>
 
-@include('admin.footer')
+@include('admin.banking.footer')
