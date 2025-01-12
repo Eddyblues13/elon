@@ -258,7 +258,8 @@
                                     <ul>
                                         <li><a href="/">Home</a></li>
                                         <li><a href="{{route('forex.page')}}">Forex</a></li>
-                                        <li><a href="{{route('banking.page')}}">Banking</a></li>
+                                        <li><a href="https://bk.ietmarket.com/">Banking</a></li>
+                                        {{-- <li><a href="{{route('banking.page')}}">Banking</a></li> --}}
                                         <li><a href="/shop/cars">Cars</a></li>
                                         <li><a href="/shop/houses">Houses</a></li>
                                         <li><a href="/shop/appliances">Equipments</a></li>
