@@ -47,7 +47,8 @@
                                 <h3><a href="#">Online Banking</a></h3>
                             </div>
                             <p>When it comes to managing your personal or business accounts, you'll be able to quickly
-                                pay bills, transfer money, apply for certain loans and much more through First Unit bank
+                                pay bills, transfer money, apply for certain loans and much more throughIntegrity Equity
+                                Trade bank Market (IETBM)
                                 Online Banking. </p>
                             <a href="#" class="link style1">Learn More <i class="flaticon-right-arrow-1"></i></a>
                         </div>
@@ -60,7 +61,8 @@
                                 <span><i class="flaticon-computer"></i></span>
                                 <h3><a href="#">Mobile Banking </a></h3>
                             </div>
-                            <p>When you're ready to take your member experience to a new level, HawaiiUSA's Mobile
+                            <p>When you're ready to take your member experience to a new level, Integrity Equity Trade
+                                bank Market (IETBM)
                                 Banking enables you to manage your account, move money and more - all from your
                                 smartphone or tablet using our free app. See what you can do! </p>
                             <a href="#" class="link style1">Learn More <i class="flaticon-right-arrow-1"></i></a>
@@ -102,7 +104,8 @@
                                 <span><i class="flaticon-mortarboard"></i></span>
                                 <h3><a href="#">e-Statements</a></h3>
                             </div>
-                            <p> First Unit bank allows account holders to access their statements online where they can
+                            <p>Integrity Equity Trade bank Market (IETBM) allows account holders to access their
+                                statements online where they can
                                 download or print them</p>
                             <a href="#" class="link style1">Learn More <i class="flaticon-right-arrow-1"></i></a>
                         </div>

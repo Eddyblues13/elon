@@ -21,9 +21,9 @@
                             <p> Our comprehensive business services are available to help you run your
                                 enterprise smoothly.</p>
                             <div class="hero-btn">
-                                <!--<a href="register.php" class="btn style1">Get Started</a>-->
+                                <a href="{{route('register')}}" class="btn style1">Get Started</a>
                                 <a class="play-video">
-                                    <a href="{{url('register')}}" class="btn style1">Login</a>
+                                    <a href="{{route('login')}}" class="btn style1">Login</a>
                                     <span class="sm-none"></span>
                             </div>
                         </div>
@@ -267,7 +267,8 @@
                     </span>
                     <div class="service-info">
                         <h3><a href="service-details.html">Mobile Banking</a></h3>
-                        <p>When you're ready to take your member experience to a new level, HawaiiUSA's Mobile
+                        <p>When you're ready to take your member experience to a new level, Integrity Equity Trade bank
+                            Market (IETBM)
                             Banking enables you to manage your account, move money and more - all from your
                             smartphone or tablet using our free app. See what you can do! </p>
                     </div>
@@ -282,7 +283,7 @@
                         <h3><a href="service-details.html">Online Banking</a></h3>
                         <p>When it comes to managing your personal or business accounts, you'll be able to
                             quickly pay bills, transfer money, apply for certain loans and much more through
-                            First Unit bank Online Banking. </p>
+                            Integrity Equity Trade bank Market (IETBM) Online Banking. </p>
                     </div>
                 </div>
             </div>
@@ -423,12 +424,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-4 text-md-end sm-center">
+            {{-- <div class="col-lg-5 col-md-4 text-md-end sm-center">
                 <div class="app-btn">
                     <a href="https://play.google.com/store/apps"><img src="asset/img/play-store.png" alt="Image"></a>
                     <a href="https://www.apple.com/app-store/"><img src="asset/img/apple-store.png" alt="Image"></a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
