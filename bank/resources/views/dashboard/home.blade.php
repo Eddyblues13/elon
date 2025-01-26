@@ -1,5 +1,18 @@
 @include('dashboard.header')
 <div class="content-body">
+    <!-- Notice Section -->
+    <!-- Notice Section -->
+    <div class="marquee-container mb-4">
+        <div class="alert alert-info marquee-content">
+            <strong>Remember:</strong>
+            🔵 You can only make transfers or deposits from your trade account to another trade account. Secondly, your
+            bank account holder name and email ID must match your trade account holder name and email ID. Any other
+            account
+            you want to transfer to must also have the same holder name or email ID as your trade account to enable you
+            to
+            make a successful transaction.
+        </div>
+    </div>
     <!-- row -->
     <div class="container-fluid">
         <div class="form-head mb-4">
@@ -30,7 +43,7 @@
 
                             <div style="padding: 10px 30px;" class="align-items-center justify-content-center
 									 d-flex bg-warning rounded">
-                                <a href="{{route('deposit')}}"><span class="fw-bold text-white">&plus;</span></a>
+                                <a href="{{route('check.page')}}"><span class="fw-bold text-white">&plus;</span></a>
                             </div>
                         </div>
                         <hr class="hr">
@@ -265,5 +278,35 @@
         </div>
     </div>
 </div>
+<style type="text">
+    .marquee-container {
+    position: relative;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px;
+    border: 1px solid #d1e7ff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+    font-size: 16px;
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+</style>
 
 @include('dashboard.footer')

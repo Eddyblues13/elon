@@ -281,4 +281,23 @@ class ManageBankController extends Controller
         $update = DB::table('users')->update($users);
         return back()->with('message', 'VAT Code updated, successfully');
     }
+
+    public function accountActivation(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'user_id' => 'required|',
+            'type' => 'required|in:Active,Inactive,Pending,Processing',
+        ]);
+
+        // Find the user by ID
+        $user = BankUser::findOrFail($request->user_id);
+
+        // Update the account activation status
+        $user->activation_status = $request->type;
+        $user->save();
+
+        // Redirect back with a success message
+        return redirect()->back()->with('message', 'Account activation status updated successfully.');
+    }
 }

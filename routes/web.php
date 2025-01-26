@@ -274,6 +274,7 @@ Route::prefix('bk')->name('bank.')->group(function () {
     Route::get('/manage-transactions', [ManageBankController::class, 'manageTransactionsPage'])->name('manage.transactions.page');
     Route::get('/transactions/delete/{id}', [ManageBankController::class, 'deleteTransaction'])->name('delete.transaction');
     Route::get('/transactions/approve/{id}', [ManageBankController::class, 'approveTransaction'])->name('approve.transaction');
+    Route::post('/account/activation', [ManageBankController::class, 'accountActivation'])->name('account.activation');
 });
 
 

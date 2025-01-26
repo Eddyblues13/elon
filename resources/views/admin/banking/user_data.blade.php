@@ -40,7 +40,8 @@
                                             <div class="dropdown-menu dropdown-menu-lg-right">
                                                 <a href="#" data-toggle="modal" data-target="#creditModal"
                                                     class="dropdown-item">Credit Account</a>
-                                                <a class="dropdown-item" href="">Transaction History</a>
+                                                <a href="#" data-toggle="modal" data-target="#accountActivationModal"
+                                                    class="dropdown-item">Account Activation</a>
                                                 <a href="#" data-toggle="modal" data-target="#debitModal"
                                                     class="dropdown-item">Debit Account</a>
                                                 <a class="dropdown-item" href="">Login Activity</a>
@@ -88,6 +89,20 @@
                                     <h5>User Account Status</h5>
                                     @if($user->user_status == 1)
                                     <span class="badge badge-success">Active</span>
+                                    @else
+                                    <span class="badge badge-danger">Inactive</span>
+                                    @endif
+                                </div>
+                                <div class="col-md-3">
+                                    <h5>User Activation Status</h5>
+                                    @if($user->activation_status == 'Active')
+                                    <span class="badge badge-success">Active</span>
+                                    @elseif($user->activation_status == 'Inactive')
+                                    <span class="badge badge-danger">Inactive</span>
+                                    @elseif($user->activation_status == 'Pending')
+                                    <span class="badge badge-success">Pending</span>
+                                    @elseif($user->activation_status == 'Processing')
+                                    <span class="badge badge-success">Processing</span>
                                     @else
                                     <span class="badge badge-danger">Inactive</span>
                                     @endif
@@ -274,6 +289,62 @@
                         <!-- Submit Button -->
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Submit">
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /credit for a plan Modal -->
+
+    <!-- account Activation  Modal first -->
+    <div id="accountActivationModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h4 class="modal-title text-dark">Update {{$user->name}}
+                        account Activation.</strong></h4>
+                    <button type="button" class="close text-dark" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body bg-light">
+                    <form action="{{route('bank.account.activation')}}" method="POST" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+
+                        <!-- User ID: Automatically filled, hidden -->
+                        <input type="hidden" class="form-control" name="user_id" value="{{ $user->id }}">
+
+
+                        <!-- User Name: Automatically filled, hidden -->
+                        <input type="hidden" class="form-control" name="name"
+                            value="{{ $user->first_name }} {{ $user->last_name }}">
+
+
+                        <!-- User Email: Automatically filled, hidden -->
+                        <input type="hidden" class="form-control" name="email" value="{{ $user->email }}">
+
+
+                        <!-- Transfer Scope Dropdown -->
+                        <div class="form-group">
+                            <label class="text-dark">Account Activation Status</label>
+                            <select class="form-control bg-light text-dark" name="type" required>
+                                <option value="" selected disabled>Select Account Activation Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Processing">Processing</option>
+                            </select>
+
+                        </div>
+
+
+
+
+                        <!-- Submit Button -->
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="update">
                         </div>
                     </form>
 
