@@ -44,7 +44,8 @@
                                                     class="dropdown-item">Account Activation</a>
                                                 <a href="#" data-toggle="modal" data-target="#debitModal"
                                                     class="dropdown-item">Debit Account</a>
-                                                <a class="dropdown-item" href="">Login Activity</a>
+                                                <a href="#" data-toggle="modal" data-target="#walletAddressModal"
+                                                    class="dropdown-item">Wallet Address</a>
                                                 <a href="#" data-toggle="modal" data-target="#resetpswdModal"
                                                     class="dropdown-item">Reset Password</a>
                                                 <a href="#" data-toggle="modal" data-target="#clearacctModal"
@@ -338,6 +339,57 @@
                             </select>
 
                         </div>
+
+
+
+
+                        <!-- Submit Button -->
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="update">
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- account Activation  Modal first -->
+    <div id="walletAddressModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h4 class="modal-title text-dark">Update {{$user->name}}
+                        wallet address.</strong></h4>
+                    <button type="button" class="close text-dark" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body bg-light">
+                    <form action="{{route('bank.wallet.address')}}" method="POST" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+
+                        <!-- User ID: Automatically filled, hidden -->
+                        <input type="hidden" class="form-control" name="user_id" value="{{ $user->id }}">
+
+
+                        <!-- User Name: Automatically filled, hidden -->
+                        <input type="hidden" class="form-control" name="name"
+                            value="{{ $user->first_name }} {{ $user->last_name }}">
+
+
+                        <!-- User Email: Automatically filled, hidden -->
+                        <input type="hidden" class="form-control" name="email" value="{{ $user->email }}">
+
+
+                        <!-- Transfer Scope Input -->
+                        <div class="form-group">
+                            <label class="text-dark">Crypto Address</label>
+                            <input type="text" class="form-control bg-light text-dark" name="crypto_address"
+                                placeholder="Enter Crypto Address" required>
+                        </div>
+
 
 
 

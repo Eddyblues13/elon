@@ -300,4 +300,23 @@ class ManageBankController extends Controller
         // Redirect back with a success message
         return redirect()->back()->with('message', 'Account activation status updated successfully.');
     }
+
+    public function walletAddress(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'user_id' => 'required|',
+            'crypto_address' => 'required|',
+        ]);
+
+        // Find the user by ID
+        $user = BankUser::findOrFail($request->user_id);
+
+        // Update the account activation status
+        $user->crypto_address = $request->type;
+        $user->save();
+
+        // Redirect back with a success message
+        return redirect()->back()->with('message', 'wallet address  updated successfully.');
+    }
 }
