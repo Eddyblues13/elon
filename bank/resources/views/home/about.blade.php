@@ -192,7 +192,7 @@
                         <img src="asset/img/goal/goal-shape-1.png" alt="Image" class="goal-shape-three">
                         <img src="asset/img/goal/goal-shape-2.png" alt="Image" class="goal-shape-one">
                         <img src="asset/img/goal/goal-shape-3.png" alt="Image" class="goal-shape-two">
-                        <img src="asset/img/goal/goal-1.jpg" alt="Image">
+                        <img src="asset/img/goal/goal-1.png" alt="Image">
                     </div>
                 </div>
                 <div class="col-lg-6">

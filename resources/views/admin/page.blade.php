@@ -83,7 +83,7 @@
 
                                                 <option>5EJXRd02.jpg1635329727</option>
 
-                                                <option>SIu0JZ01.jpg1635329714</option>
+                                                <option>SIu0JZ01.png1635329714</option>
                                             </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Save</button>
@@ -308,7 +308,7 @@
                                             </div>
                                             <ul class="list-group list-group-flush ">
                                                 <li class="list-group-item bg-light text-dark"> Investor</li>
-                                                <li class="bg-light list-group-item text-dark">SIu0JZ01.jpg1635329714
+                                                <li class="bg-light list-group-item text-dark">SIu0JZ01.png1635329714
                                                 </li>
                                             </ul>
                                             <div class="card-body">
@@ -358,8 +358,8 @@
                                                             <h5 class=" text-dark">Picture</h5>
                                                             <select name="picture"
                                                                 class="form-control bg-light text-dark">
-                                                                <option value="SIu0JZ01.jpg1635329714">
-                                                                    SIu0JZ01.jpg1635329714</option>
+                                                                <option value="SIu0JZ01.png1635329714">
+                                                                    SIu0JZ01.png1635329714</option>
 
                                                                 <option>iAwfKeabout.png</option>
 
@@ -367,7 +367,7 @@
 
                                                                 <option>5EJXRd02.jpg1635329727</option>
 
-                                                                <option>SIu0JZ01.jpg1635329714</option>
+                                                                <option>SIu0JZ01.png1635329714</option>
                                                             </select>
                                                         </div>
                                                         <input type="hidden" name="id" value="3">
@@ -445,7 +445,7 @@
 
                                                                 <option>5EJXRd02.jpg1635329727</option>
 
-                                                                <option>SIu0JZ01.jpg1635329714</option>
+                                                                <option>SIu0JZ01.png1635329714</option>
                                                             </select>
                                                         </div>
                                                         <input type="hidden" name="id" value="2">
@@ -2181,7 +2181,7 @@
                                     </div>
                                     <div class="p-1 col-md-4">
                                         <div class="card border p-1 bg-light">
-                                            <img src="https://lockestocks.com/account/storage/app/public/photos/SIu0JZ01.jpg1635329714"
+                                            <img src="https://lockestocks.com/account/storage/app/public/photos/SIu0JZ01.png1635329714"
                                                 class="card-img-top w-50" alt="Image">
 
                                             <div class="card-body">

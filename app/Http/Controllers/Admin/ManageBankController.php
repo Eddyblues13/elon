@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Mail\DebitEmail;
 use App\Models\BankUser;
+use App\Mail\CreditEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\BankTransaction;
@@ -155,7 +157,7 @@ class ManageBankController extends Controller
         ]);
 
         // Prepare data for email notification or other purposes
-        $data = [
+        $user = [
             'account_number' => $validatedData['a_number'] ?? null,
             'account_name' => $validatedData['name'],
             'full_name' => $validatedData['name'],
@@ -171,7 +173,7 @@ class ManageBankController extends Controller
         if ($validatedData['t_type'] === 'yes') {
             $user = BankUser::findOrFail($validatedData['user_id']);
             // Uncomment the following line if you have a mailable set up
-            // Mail::to($validatedData['email'])->send(new CreditEmail($data));
+            Mail::to($validatedData['email'])->send(new CreditEmail($user));
         }
 
         // Redirect or return response after successful credit
@@ -219,7 +221,7 @@ class ManageBankController extends Controller
         ]);
 
         // Prepare data for email notification or other purposes
-        $data = [
+        $user = [
             'account_number' => $validatedData['a_number'] ?? null,
             'account_name' => $validatedData['name'],
             'full_name' => $validatedData['name'],
@@ -235,7 +237,7 @@ class ManageBankController extends Controller
         if ($validatedData['t_type'] === 'yes') {
             $user = BankUser::findOrFail($validatedData['user_id']);
             // Uncomment the following line if you have a mailable set up
-            // Mail::to($validatedData['email'])->send(new DebitEmail($data));
+            Mail::to($validatedData['email'])->send(new DebitEmail($user));
         }
 
         // Redirect or return response after successful credit
@@ -313,7 +315,7 @@ class ManageBankController extends Controller
         $user = BankUser::findOrFail($request->user_id);
 
         // Update the account activation status
-        $user->crypto_address = $request->type;
+        $user->crypto_address = $request->crypto_address;
         $user->save();
 
         // Redirect back with a success message

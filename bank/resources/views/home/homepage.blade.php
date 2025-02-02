@@ -397,7 +397,7 @@
                 <div class="testimonial-card-thumb">
                     <div class="client-info-wrap">
                         <div class="client-img">
-                            <img src="asset/img/testimonials/client-1.jpg" alt="Image">
+                            <img src="asset/img/testimonials/client-1.png" alt="Image">
                         </div>
                         <div class="client-info">
                             <h4>Alex Cruis</h4>
@@ -443,7 +443,7 @@
                     <img src="asset/img/goal/goal-shape-1.png" alt="Image" class="goal-shape-three bounce">
                     <img src="asset/img/goal/goal-shape-2.png" alt="Image" class="goal-shape-one">
                     <img src="asset/img/goal/goal-shape-3.png" alt="Image" class="goal-shape-two">
-                    <img src="asset/img/goal/goal-1.jpg" alt="Image">
+                    <img src="asset/img/goal/goal-1.png" alt="Image">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -482,7 +482,7 @@
             <div class="col-xl-4 col-lg-6 col-md-6">
                 <div class="blog-card style1">
                     <div class="blog-img">
-                        <img src="asset/img/blog/blog-1.jpg" alt="Image">
+                        <img src="asset/img/blog/blog-1.png" alt="Image">
                     </div>
                     <div class="blog-info">
                         <ul class="blog-metainfo  list-style">

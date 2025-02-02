@@ -103,7 +103,7 @@
                                         <div class="ht-language-trigger"><span>English</span></div>
                                         <div class="language ht-language">
                                             <ul class="ht-setting-list">
-                                                <li class="active"><a href="#"><img src="images/menu/flag-icon/1.jpg"
+                                                <li class="active"><a href="#"><img src="images/menu/flag-icon/1.png"
                                                             alt="">English</a></li>
                                                 <li><a href="#"><img src="images/menu/flag-icon/2.jpg"
                                                             alt="">Français</a></li>
@@ -127,7 +127,7 @@
                         <div class="col-lg-3">
                             <div class="logo pb-sm-30 pb-xs-30">
                                 <a href="index.html">
-                                    <img src="images/menu/logo/1.jpg" alt="">
+                                    <img src="images/menu/logo/1.png" alt="">
                                 </a>
                             </div>
                         </div>

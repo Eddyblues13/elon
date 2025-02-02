@@ -100,7 +100,7 @@
                                         <div class="ht-language-trigger"><span>English</span></div>
                                         <div class="language ht-language">
                                             <ul class="ht-setting-list">
-                                                <li class="active"><a href="#"><img src="images/menu/flag-icon/1.jpg"
+                                                <li class="active"><a href="#"><img src="images/menu/flag-icon/1.png"
                                                             alt="">English</a></li>
                                                 <li><a href="#"><img src="images/menu/flag-icon/2.jpg"
                                                             alt="">Français</a></li>
@@ -124,7 +124,7 @@
                         <div class="col-lg-3">
                             <div class="logo pb-sm-30 pb-xs-30">
                                 <a href="index.html">
-                                    <img src="images/menu/logo/1.jpg" alt="">
+                                    <img src="images/menu/logo/1.png" alt="">
                                 </a>
                             </div>
                         </div>
@@ -598,7 +598,7 @@
                             <!-- Begin Footer Logo Area -->
                             <div class="col-lg-4 col-md-6">
                                 <div class="footer-logo">
-                                    <img src="images/menu/logo/1.jpg" alt="Footer Logo">
+                                    <img src="images/menu/logo/1.png" alt="Footer Logo">
                                     <p class="info">
                                         We are a team of designers and developers that create high quality HTML Template
                                         & Woocommerce, Shopify Theme.

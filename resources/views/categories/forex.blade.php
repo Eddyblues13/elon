@@ -166,7 +166,7 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="testimony text-center">
-                                    <img src="path_to_user_image1.jpg" alt="John Doe" class="rounded-circle mb-3"
+                                    <img src="path_to_user_image1.png" alt="John Doe" class="rounded-circle mb-3"
                                         width="100" height="100">
                                     <h5>John Doe</h5>
                                     <p>"Thanks to this platform, I was able to successfully trade Forex and withdraw my

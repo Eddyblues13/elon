@@ -330,7 +330,7 @@ $('#inter_form').on('submit', function(e){
 
 				<div class="p-4">
 					<!-- <div class="mb-2">
-                        <img src="assets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="layout images">
+                        <img src="assets/images/layouts/layout-1.png" class="img-thumbnail" alt="layout images">
                     </div> -->
 
 					<div class="form-check form-switch mb-3">

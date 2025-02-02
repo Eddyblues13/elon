@@ -95,7 +95,7 @@
                     <!-- Begin Footer Logo Area -->
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-logo">
-                            <img src="images/menu/logo/1.jpg" alt="Footer Logo">
+                            <img src="images/menu/logo/1.png" alt="Footer Logo">
                             <p class="info">
                                 We are a team of designers and developers that create high quality HTML Template
                                 & Woocommerce, Shopify Theme.
@@ -271,7 +271,7 @@
                         <div class="product-details-left">
                             <div class="product-details-images slider-navigation-1">
                                 <div class="lg-image">
-                                    <img src="images/product/large-size/1.jpg" alt="product image">
+                                    <img src="images/product/large-size/1.png" alt="product image">
                                 </div>
                                 <div class="lg-image">
                                     <img src="images/product/large-size/2.jpg" alt="product image">
@@ -290,7 +290,7 @@
                                 </div>
                             </div>
                             <div class="product-details-thumbs slider-thumbs-1">
-                                <div class="sm-image"><img src="images/product/small-size/1.jpg"
+                                <div class="sm-image"><img src="images/product/small-size/1.png"
                                         alt="product image thumb"></div>
                                 <div class="sm-image"><img src="images/product/small-size/2.jpg"
                                         alt="product image thumb"></div>
