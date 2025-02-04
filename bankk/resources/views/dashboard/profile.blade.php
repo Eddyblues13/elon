@@ -141,8 +141,8 @@
 										<div class="profile-interest">
 											<h5 class="text-primary d-inline">Interest</h5>
 											<div class="row mt-4 sp4" id="lightgallery">
-												<a href="images/profile/2.jpg" data-exthumbimage="images/profile/2.jpg" data-src="images/profile/2.jpg" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
-													<img src="images/profile/2.jpg" alt="" class="img-fluid">
+												<a href="images/profile/2.png" data-exthumbimage="images/profile/2.png" data-src="images/profile/2.png" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
+													<img src="images/profile/2.png" alt="" class="img-fluid">
 												</a>
 												<a href="images/profile/3.jpg" data-exthumbimage="images/profile/3.jpg" data-src="images/profile/3.jpg" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
 													<img src="images/profile/3.jpg" alt="" class="img-fluid">
@@ -156,8 +156,8 @@
 												<a href="images/profile/4.jpg" data-exthumbimage="images/profile/4.jpg" data-src="images/profile/4.jpg" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
 													<img src="images/profile/4.jpg" alt="" class="img-fluid">
 												</a>
-												<a href="images/profile/2.jpg" data-exthumbimage="images/profile/2.jpg" data-src="images/profile/2.jpg" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
-													<img src="images/profile/2.jpg" alt="" class="img-fluid">
+												<a href="images/profile/2.png" data-exthumbimage="images/profile/2.png" data-src="images/profile/2.png" class="mb-1 col-lg-4 col-xl-4 col-sm-4 col-6">
+													<img src="images/profile/2.png" alt="" class="img-fluid">
 												</a>
 											</div>
 										</div>

@@ -339,7 +339,7 @@ $('#inter_form').on('submit', function(e){
 					</div>
 
 					<!-- <div class="mb-2">
-                        <img src="assets/images/layouts/layout-2.jpg" class="img-thumbnail" alt="layout images">
+                        <img src="assets/images/layouts/layout-2.png" class="img-thumbnail" alt="layout images">
                     </div> -->
 					<div class="form-check form-switch mb-3">
 						<input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">

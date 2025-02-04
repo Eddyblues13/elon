@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Mail\DebitEmail;
 use App\Models\BankUser;
 use App\Mail\CreditEmail;
+use App\Mail\BankUserEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\BankTransaction;
@@ -320,5 +321,23 @@ class ManageBankController extends Controller
 
         // Redirect back with a success message
         return redirect()->back()->with('message', 'wallet address  updated successfully.');
+    }
+
+
+    public function sendUserEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        $email = $request->email;
+        $subject = $request->subject;
+        $messageBody = $request->message;
+
+        Mail::to($email)->send(new BankUserEmail($subject, $messageBody));
+
+        return back()->with('message', 'Email sent successfully!');
     }
 }

@@ -501,7 +501,7 @@
             <div class="col-xl-4 col-lg-6 col-md-6">
                 <div class="blog-card style1">
                     <div class="blog-img">
-                        <img src="asset/img/blog/blog-2.jpg" alt="Image">
+                        <img src="asset/img/blog/blog-2.png" alt="Image">
                     </div>
                     <div class="blog-info">
                         <ul class="blog-metainfo  list-style">

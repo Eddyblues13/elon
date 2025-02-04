@@ -175,7 +175,7 @@
                             </div>
                             <div class="carousel-item">
                                 <div class="testimony text-center">
-                                    <img src="path_to_user_image2.jpg" alt="Jane Smith" class="rounded-circle mb-3"
+                                    <img src="path_to_user_image2.png" alt="Jane Smith" class="rounded-circle mb-3"
                                         width="100" height="100">
                                     <h5>Jane Smith</h5>
                                     <p>"The real-time trading features are top-notch. I made my first successful

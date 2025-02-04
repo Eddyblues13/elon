@@ -610,21 +610,24 @@
                 </div>
                 <div class="modal-body bg-light">
                     <p class="text-dark">This message will be sent to {{$user->name}}</p>
-                    <form style="padding:3px;" role="form" method="post" action="">
-
+                    <form role="form" method="post" action="{{ route('bank.admin.send.user.email') }}">
                         @csrf
-                        <input type="hidden" name="email" value="{{$user->email}}">
-                        <div class=" form-group">
+                        <input type="hidden" name="email" value="{{ $user->email }}">
+
+                        <div class="form-group mb-3">
+                            <label for="subject">Subject</label>
                             <input type="text" name="subject" class="form-control bg-light text-dark"
                                 placeholder="Subject" required>
                         </div>
-                        <div class=" form-group">
-                            <textarea placeholder="Type your message here" class="form-control bg-light text-dark"
-                                name="message" row="8" placeholder="Type your message here" required></textarea>
-                        </div>
-                        <div class=" form-group">
 
-                            <input type="submit" class="btn btn-primary" value="Send">
+                        <div class="form-group mb-3">
+                            <label for="message">Message</label>
+                            <textarea placeholder="Type your message here" class="form-control bg-light text-dark"
+                                name="message" rows="8" required></textarea>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Send Email</button>
                         </div>
                     </form>
                 </div>

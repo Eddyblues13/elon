@@ -27255,7 +27255,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 [data-theme-version="transparent"] {
-    background: url("../images/body/12.jpg");
+    background: url("../images/body/12.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -38029,7 +38029,7 @@ table.dataTable thead .sorting {
 }
 
 .welcome-content {
-    background: url("../images/1.jpg");
+    background: url("../images/1.png");
     background-size: cover;
     background-position: center;
     height: 100%;

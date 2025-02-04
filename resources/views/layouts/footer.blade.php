@@ -278,7 +278,7 @@
 
                                 </div>
                                 <div class="lg-image">
-                                    <img src="{{ asset('images/product/large-size/2.jpg') }}" alt="product image">
+                                    <img src="{{ asset('images/product/large-size/2.png') }}" alt="product image">
                                 </div>
                                 <div class="lg-image">
                                     <img src="{{ asset('images/product/large-size/3.jpg') }}" alt="product image">
@@ -296,7 +296,7 @@
                             <div class="product-details-thumbs slider-thumbs-1">
                                 <div class="sm-image"><img src="{{ asset('images/product/small-size/1.png') }}"
                                         alt="product image thumb"></div>
-                                <div class="sm-image"><img src="{{ asset('images/product/small-size/2.jpg') }}"
+                                <div class="sm-image"><img src="{{ asset('images/product/small-size/2.png') }}"
                                         alt="product image thumb"></div>
                                 <div class="sm-image"><img src="{{ asset('images/product/small-size/3.jpg') }}"
                                         alt="product image thumb"></div>

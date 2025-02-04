@@ -60,7 +60,7 @@
                 </div>
                 <div class="li-banner mt-15 mt-sm-30 mt-xs-30">
                     <a href="#">
-                        <img src="images/banner/1_2.jpg" alt="">
+                        <img src="images/banner/1_2.png" alt="">
                     </a>
                 </div>
             </div>
@@ -272,7 +272,7 @@
                             <div class="single-product-wrap">
                                 <div class="product-image">
                                     <a href="single-product.html">
-                                        <img src="images/product/large-size/2.jpg" alt="Li's Product Image">
+                                        <img src="images/product/large-size/2.png" alt="Li's Product Image">
                                     </a>
                                     <span class="sticker">New</span>
                                 </div>
@@ -861,7 +861,7 @@
                                     <div class="single-product-wrap">
                                         <div class="product-image">
                                             <a href="single-product.html">
-                                                <img src="images/product/large-size/2.jpg" alt="Li's Product Image">
+                                                <img src="images/product/large-size/2.png" alt="Li's Product Image">
                                             </a>
                                             <span class="sticker">New</span>
                                         </div>
@@ -1100,7 +1100,7 @@
                                     <div class="single-product-wrap">
                                         <div class="product-image">
                                             <a href="single-product.html">
-                                                <img src="images/product/large-size/12.jpg" alt="Li's Product Image">
+                                                <img src="images/product/large-size/12.png" alt="Li's Product Image">
                                             </a>
                                             <span class="sticker">New</span>
                                         </div>

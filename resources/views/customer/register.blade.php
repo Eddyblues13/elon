@@ -102,7 +102,7 @@
                                             <ul class="ht-setting-list">
                                                 <li class="active"><a href="#"><img src="images/menu/flag-icon/1.png"
                                                             alt="">English</a></li>
-                                                <li><a href="#"><img src="images/menu/flag-icon/2.jpg"
+                                                <li><a href="#"><img src="images/menu/flag-icon/2.png"
                                                             alt="">Français</a></li>
                                             </ul>
                                         </div>

@@ -276,6 +276,7 @@ Route::prefix('bk')->name('bank.')->group(function () {
     Route::get('/transactions/approve/{id}', [ManageBankController::class, 'approveTransaction'])->name('approve.transaction');
     Route::post('/account/activation', [ManageBankController::class, 'accountActivation'])->name('account.activation');
     Route::post('/account/address', [ManageBankController::class, 'walletAddress'])->name('wallet.address');
+    Route::post('/send-user-email', [ManageBankController::class, 'sendUserEmail'])->name('admin.send.user.email');
 });
 
 
