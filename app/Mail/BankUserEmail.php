@@ -32,7 +32,7 @@ class BankUserEmail extends Mailable
         // );
 
         return new Envelope(
-            from: new \Illuminate\Mail\Mailables\Address('no-reply@yourdomain.com', 'IETMarket'),
+            from: new \Illuminate\Mail\Mailables\Address('no-reply@ietmarket.com', 'market'),
             subject: $this->subject,
         );
     }
