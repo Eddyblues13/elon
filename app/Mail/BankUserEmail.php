@@ -27,8 +27,13 @@ class BankUserEmail extends Mailable
      */
     public function envelope(): Envelope
     {
+        // return new Envelope(
+        //     subject: $this->subject, // Use the dynamic subject passed in constructor
+        // );
+
         return new Envelope(
-            subject: $this->subject, // Use the dynamic subject passed in constructor
+            from: new \Illuminate\Mail\Mailables\Address('no-reply@yourdomain.com', 'IETMarket'),
+            subject: $this->subject,
         );
     }
 

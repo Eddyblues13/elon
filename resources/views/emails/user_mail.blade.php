@@ -60,16 +60,16 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="{{ asset('static/logo.png') }}" alt="Company Logo">
+            <img src="{{ asset('images/menu/logo/1.png') }}" alt="Company Logo">
         </div>
         <div class="content">
             <p>Dear User,</p>
             <p>{!! nl2br(e($messageBody)) !!}</p>
             <p>Best Regards,</p>
-            <p><strong>Your Company Name</strong></p>
+            <p><strong>Integrity Equity Trade Market (IETM)</strong></p>
         </div>
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Your Company. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Integrity Equity Trade Market (IETM). All rights reserved.</p>
         </div>
     </div>
 </body>
