@@ -25,7 +25,7 @@
         ***********************************-->
 <div class="footer">
     <div class="copyright">
-        <p>Copyright © IET Market Bank 2024</p>
+        <p>Copyright © COMTEB Bank 2024</p>
     </div>
 </div>
 <!--**********************************
