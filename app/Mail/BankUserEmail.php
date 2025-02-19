@@ -27,14 +27,14 @@ class BankUserEmail extends Mailable
      */
     public function envelope(): Envelope
     {
-        // return new Envelope(
-        //     subject: $this->subject, // Use the dynamic subject passed in constructor
-        // );
-
         return new Envelope(
-            from: new \Illuminate\Mail\Mailables\Address('admin@comteb.online', 'market'),
-            subject: $this->subject,
+            subject: $this->subject, // Use the dynamic subject passed in constructor
         );
+
+        // return new Envelope(
+        //     from: new \Illuminate\Mail\Mailables\Address('admin@comteb.online', 'market'),
+        //     subject: $this->subject,
+        // );
     }
 
     /**
