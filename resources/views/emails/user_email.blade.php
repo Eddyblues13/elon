@@ -471,7 +471,7 @@
                                         <p class="f-fallback sub align-center">&copy; https://astracointrading.com/ All
                                             rights reserved.</p>
                                         <p class="f-fallback sub align-center">
-                                            Integrity Equity Trade Market (IETM)
+                                            Commercial Trade Equity (COMTEB)
                                             <br>https://astracointrading.com/
                                         </p>
                                     </td>

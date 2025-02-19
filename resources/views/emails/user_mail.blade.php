@@ -66,10 +66,10 @@
             <p>Dear User,</p>
             <p>{!! nl2br(e($messageBody)) !!}</p>
             <p>Best Regards,</p>
-            <p><strong>Integrity Equity Trade Market (IETM)</strong></p>
+            <p><strong>Commercial Trade Equity (COMTEB)</strong></p>
         </div>
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Integrity Equity Trade Market (IETM). All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Commercial Trade Equity (COMTEB). All rights reserved.</p>
         </div>
     </div>
 </body>
