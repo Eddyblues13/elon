@@ -63,7 +63,7 @@
             <img src="{{ asset('images/menu/logo/1.png') }}" alt="Company Logo">
         </div>
         <div class="content">
-            <p>Dear User,</p>
+            <p>Dear Customer,</p>
             <p>{!! nl2br(e($messageBody)) !!}</p>
             <p>Best Regards,</p>
             <p><strong>Commercial Trade Equity (COMTEB)</strong></p>
