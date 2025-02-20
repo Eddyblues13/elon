@@ -60,7 +60,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="{{ asset('images/menu/logo/1.png') }}" alt="Company Logo">
+            <img src="{{ asset('asset/img/logo.png') }}" alt="Company Logo">
         </div>
         <div class="content">
             <p>Dear Customer,</p>

@@ -205,7 +205,7 @@
 						<div class="proton-margin"></div>
 						<center>
 							<h1>Greetings!, {{$user['full_name']}}</h1>
-							<img src="{{asset('images/menu/logo/1.png')}}" alt="Image" />
+							<img src="{{asset('asset/img/logo.png')}}" alt="Image" />
 						</center>
 
 						<br>

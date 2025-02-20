@@ -420,7 +420,7 @@
                     <tr>
                         <td class="email-masthead">
                             <a href="'.$site_url.'" class="">
-                                <img src="{{asset('static/logo.png')}}" class="email-masthead_logo">
+                                <img src="{{asset('asset/img/logo.png')}}" class="email-masthead_logo">
                             </a>
                         </td>
                     </tr>
