@@ -172,7 +172,7 @@ class ManageBankController extends Controller
 
         // Optional: Send email notification if requested
         if ($validatedData['t_type'] === 'yes') {
-            $user = BankUser::findOrFail($validatedData['user_id']);
+            //$user = BankUser::findOrFail($validatedData['user_id']);
             // Uncomment the following line if you have a mailable set up
             Mail::to($validatedData['email'])->send(new CreditEmail($user));
         }
@@ -236,7 +236,7 @@ class ManageBankController extends Controller
 
         // Optional: Send email notification if requested
         if ($validatedData['t_type'] === 'yes') {
-            $user = BankUser::findOrFail($validatedData['user_id']);
+            //$user = BankUser::findOrFail($validatedData['user_id']);
             // Uncomment the following line if you have a mailable set up
             Mail::to($validatedData['email'])->send(new DebitEmail($user));
         }
